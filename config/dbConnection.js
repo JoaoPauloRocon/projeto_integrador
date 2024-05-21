@@ -4,7 +4,7 @@ var connMySql = function () {
         host: 'localhost',
         user: 'root',
         password: '',
-        database: 'lojainstrumentos'
+        database: 'r77eventos'
     });
 }
 
