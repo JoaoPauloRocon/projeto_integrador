@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser  = require('body-parser')
 var consign = require('consign');
-// var expressValidator = require('express-validator');
+var expressValidator = require('express-validator');
 var expressSession = require('express-session');
 const multer = require('multer');
 const configMulter = multer({
@@ -30,8 +30,10 @@ app.use(expressSession({
 
 consign()
     .include('app/routes')
+    .then('app/controllers')
     .then('config/dbConnection.js')
     .then('app/models')
-    .then('app/controllers')
+    
     .into(app);
+
 module.exports = app;
