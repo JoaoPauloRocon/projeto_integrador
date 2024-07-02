@@ -6,6 +6,53 @@
     <title>Document</title>
 </head>
 <body>
-    <p>oi kkk</p>
+    <form action="/cadastro_usuarios" method="post">
+        <div class="form-header">
+            <div class="title">
+                <h1>Cadastre-se</h1>
+            </div>
+            <div class="login-button">
+                <a href="/login">Entrar</a>
+            </div>
+        </div>
+
+        <div class="input-group">
+
+            <div class="input-box">
+                <label for="email">E-mail</label>
+                <input id="email" type="email" name="email" placeholder="Digite seu e-mail" >
+            </div>
+
+            <div class="input-box">
+                <label for="password">Senha</label>
+                <input id="senha" type="password" name="senha" placeholder="Digite sua senha" >
+            </div>
+            
+            <div class="input-box">
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" name="nome" placeholder="Digite seu primeiro nome">
+            </div>
+
+            <div class="input-box">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input id="dataNascimento" type="date" name="dataNascimento" placeholder="Digite seu dataNascimento" >
+            </div>
+
+            <div class="input-box">
+                <label for="cpf">CPF</label>
+                <input id="cpf" type="string" name="cpf" placeholder="Digite seu CPF" >
+            </div>
+
+            <div class="input-box">
+                <label for="telefone">Telefone</label>
+                <input id="telefone" type="string" name="telefone" placeholder="Digite seu telefone" >
+            </div>
+
+        </div>
+
+        <div class="continue-button">
+            <button type="submit">Continuar</button>
+        </div>
+    </form>
 </body>
 </html>
