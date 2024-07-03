@@ -40,19 +40,37 @@
 
             <div class="input-box">
                 <label for="cpf">CPF</label>
-                <input id="cpf" type="string" name="cpf" placeholder="Digite seu CPF" >
+                <input id="cpf" type="text" name="cpf" placeholder="Digite seu CPF" >
             </div>
 
             <div class="input-box">
                 <label for="telefone">Telefone</label>
-                <input id="telefone" type="string" name="telefone" placeholder="Digite seu telefone" >
+                <input id="telefone" type="text" name="telefone" placeholder="Digite seu telefone" >
             </div>
 
         </div>
+
+        <% if (typeof validacao !== 'undefined' && validacao.length > 0) { %>
+            <div class="error-messages">
+                <% validacao.forEach(function(error) { %>
+                    <p class="error"><%= error.msg %></p>
+                <% }) %>
+            </div>
+        <% } %>
 
         <div class="continue-button">
             <button type="submit">Continuar</button>
         </div>
     </form>
+
+    <style>
+        .error-messages {
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </body>
 </html>

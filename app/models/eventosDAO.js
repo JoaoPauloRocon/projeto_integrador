@@ -8,6 +8,10 @@ eventosDAO.prototype.salvarUsuario = function (usuario, callback) {
     this._connection.query("INSERT INTO usuario SET ? ", usuario, callback)
 };
 
+eventosDAO.prototype.getUsuarioEmail = function (email, callback) {
+    this._connection.query("SELECT * FROM usuario WHERE email = ?", [email], callback);
+};
+
 eventosDAO.prototype.getLogin = function (campusDeUsuario, callback) {
     this._connection.query("SELECT codUsuario FROM usuario WHERE email = '" + campusDeUsuario.email + "'AND senha ='" + campusDeUsuario.senha + "'", callback)
 };
