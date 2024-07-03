@@ -1,58 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/form_login/css/style.css">
+    <title>Formulário</title>
 </head>
+
 <body>
-    <form action="/cadastro_usuarios" method="post">
-        <div class="form-header">
-            <div class="title">
-                <h1>Cadastre-se</h1>
-            </div>
-            <div class="login-button">
-                <a href="/login">Entrar</a>
-            </div>
+
+    <div class="container1">
+        <div class="form-image">
+            <img src="/form_login/img/logo2.png" alt="">
         </div>
+        <div class="form">
+            <form action="/valida_login" method="post">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Faça Login</h1>
+                    </div>
+                </div>
+        
+                <div class="input-group">
+                    
+                    
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" name="email" placeholder="Digite seu e-mail" >
+                    </div>
 
-        <div class="input-group">
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input id="email" type="password" name="senha" placeholder="Digite sua senha" >
+                    </div>
 
-            <div class="input-box">
-                <label for="email">E-mail</label>
-                <input id="email" type="email" name="email" placeholder="Digite seu e-mail" >
-            </div>
+                </div>
+                <a href="/form_add_usuario">Cadastre-se</a>
 
-            <div class="input-box">
-                <label for="password">Senha</label>
-                <input id="senha" type="password" name="senha" placeholder="Digite sua senha" >
-            </div>
-            
-            <div class="input-box">
-                <label for="nome">Nome</label>
-                <input id="nome" type="text" name="nome" placeholder="Digite seu primeiro nome">
-            </div>
-
-            <div class="input-box">
-                <label for="dataNascimento">Data de Nascimento</label>
-                <input id="dataNascimento" type="date" name="dataNascimento" placeholder="Digite seu dataNascimento" >
-            </div>
-
-            <div class="input-box">
-                <label for="cpf">CPF</label>
-                <input id="cpf" type="string" name="cpf" placeholder="Digite seu CPF" >
-            </div>
-
-            <div class="input-box">
-                <label for="telefone">Telefone</label>
-                <input id="telefone" type="string" name="telefone" placeholder="Digite seu telefone" >
-            </div>
-
+                <div class="continue-button">
+                    <button type="submit">Continuar</button>
+                </div>
+                
+            </form>
         </div>
-
-        <div class="continue-button">
-            <button type="submit">Continuar</button>
-        </div>
-    </form>
+    </div>
 </body>
+
 </html>
