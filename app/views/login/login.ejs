@@ -12,9 +12,6 @@
 <body>
 
     <div class="container1">
-        <div class="form-image">
-            <img src="/form_login/img/logo2.png" alt="">
-        </div>
         <div class="form">
             <form action="/valida_login" method="post">
                 <div class="form-header">
@@ -22,22 +19,28 @@
                         <h1>Faça Login</h1>
                     </div>
                 </div>
-        
+
                 <div class="input-group">
-                    
-                    
                     <div class="input-box">
                         <label for="email">E-mail</label>
-                        <input id="email" type="email" name="email" placeholder="Digite seu e-mail" >
+                        <input id="email" type="email" name="email" placeholder="Digite seu e-mail">
                     </div>
 
                     <div class="input-box">
                         <label for="password">Senha</label>
-                        <input id="email" type="password" name="senha" placeholder="Digite sua senha" >
+                        <input id="password" type="password" name="senha" placeholder="Digite sua senha">
                     </div>
-
                 </div>
-                <a href="/form_add_usuario">Cadastre-se</a>
+
+                <% if (typeof validacao !== 'undefined' && validacao.length > 0) { %>
+                    <div class="error-messages">
+                        <% validacao.forEach(function(error) { %>
+                            <p class="error"><%= error.msg %></p>
+                        <% }) %>
+                    </div>
+                <% } %>
+
+                <a href="/cadastrar">Cadastre-se</a>
 
                 <div class="continue-button">
                     <button type="submit">Continuar</button>
@@ -46,6 +49,17 @@
             </form>
         </div>
     </div>
+
+    <style>
+        .error-messages {
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
 </body>
 
 </html>

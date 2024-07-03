@@ -8,27 +8,78 @@ module.exports.cadastrar_usuario = function(app, req, res){
 
 module.exports.salvar_usuario = function (app, req, res) {
     var usuario = req.body;
-    console.log(usuario)
+    var erros = [];
+    
+    // Verificações de campos obrigatórios
+    if (!usuario.email || !usuario.email.trim()) {
+        erros.push({ msg: "O campo E-mail é obrigatório!" });
+    }
+    if (!usuario.senha || !usuario.senha.trim()) {
+        erros.push({ msg: "O campo Senha é obrigatório!" });
+    }
+    if (!usuario.nome || !usuario.nome.trim()) {
+        erros.push({ msg: "O campo Nome é obrigatório!" });
+    }
+    if (!usuario.dataNascimento || !usuario.dataNascimento.trim()) {
+        erros.push({ msg: "O campo Data de Nascimento é obrigatório!" });
+    }
+    if (!usuario.cpf || !usuario.cpf.trim()) {
+        erros.push({ msg: "O campo CPF é obrigatório!" });
+    }
+    if (!usuario.telefone || !usuario.telefone.trim()) {
+        erros.push({ msg: "O campo Telefone é obrigatório!" });
+    }
+
+    if (erros.length > 0) {
+        res.render('login/cadastro_usuario', { validacao: erros });
+        return;
+    }
 
     var connection = app.config.dbConnection();
     var salvarUsuarioModel = new app.app.models.eventosDAO(connection);
-    salvarUsuarioModel.salvarUsuario(usuario, function (error, result) {
-        res.render("login/login");
+
+    // Verifica se o usuário já existe
+    salvarUsuarioModel.getUsuarioEmail(usuario.email, function (error, result) {
+        if (result.length > 0) {
+            erros.push({ msg: "O e-mail já está cadastrado!" });
+            res.render('login/cadastro_usuario', { validacao: erros });
+            return;
+        }
+        // Salva o usuário
+        salvarUsuarioModel.salvarUsuario(usuario, function (error, result) {
+            if (error) {
+                erros.push({ msg: "Erro ao salvar o usuário!" });
+                res.render('login/cadastro_usuario', { validacao: erros });
+                return;
+            }
+            res.redirect("/login");
+        });
     });
-}
+};
+
 
 module.exports.valida_login = function (app, req, res) {
     var campusDeUsuario = req.body;
-    console.log(campusDeUsuario)
     
+    var erros = [];
+    
+    if (!campusDeUsuario.email || !campusDeUsuario.email.trim()) {
+        erros.push({ msg: "O campo E-mail é obrigatório!" });
+    }
+    if (!campusDeUsuario.senha || !campusDeUsuario.senha.trim()) {
+        erros.push({ msg: "O campo Senha é obrigatório!" });
+    }
+
+    if (erros.length > 0) {
+        res.render('login/login', { validacao: erros, flagAdmin: null, codLogado: null });
+        return;
+    }
+
     var connection = app.config.dbConnection();
     var autentificacao = new app.app.models.eventosDAO(connection);
-    console.log(campusDeUsuario)
 
     autentificacao.getLogin(campusDeUsuario, function (error, result) {
         if (result.length != 0) {
-            console.log(result)
-            console.log('usuario')
             req.session.autorizado = 'usuario';
             req.session.codLogado = result[0].IDCliente;
             res.redirect('/home');
@@ -39,15 +90,14 @@ module.exports.valida_login = function (app, req, res) {
                     req.session.autorizado = 'adm';
                     req.session.codLogado = result[0].IDAdm;
                     res.redirect('/home');
-                    console.log(result)
                     return;
                 }
-                var erro = [];
-                erro.push({ msg: "Usuario ou Senha Incorretos!" })
-                res.render('login/login', { validacao: erro, flagAdmin: req.session.autorizado, codLogado: req.session.codLogado });
+                erros.push({ msg: "Usuario ou Senha Incorretos!" });
+                res.render('login/login', { validacao: erros, flagAdmin: null, codLogado: null });
                 return;
             });
         }
-
     });
 }
+
+
