@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <% if (flagAdmin==='adm' ) { %>
-                        <li class="nav-item"><a class="nav-link text-warning" href="/home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#">Sobre</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-warning" href="#" id="dropdownGaleria" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,22 +45,16 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
-                        <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>
                         <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
-                        <% } else if (flagAdmin==='usuario' ) { %>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/home">Home</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="#">Galeria</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="#">Eventos</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
-                            <% } else { %>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/home">Home</a></li>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/login">Login</a></li>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/cadastrar">Cadastre-se</a>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>
-                                </li>
-                                <% } %>
+                    <% } else if (flagAdmin==='usuario' ) { %>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#">Galeria</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#">Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
+                    <% } else { %>
+                        <li class="nav-item"><a class="nav-link text-warning" href="/cadastrar">Cadastre-se</a></li>
+                    <% } %>
                 </ul>
             </div>
         </div>
@@ -73,18 +67,15 @@
     }
 
     .dropdown-menu {
-        background-color: #343a40;
-        /* Cor de fundo do menu suspenso */
+        background-color: #343a40; /* Cor de fundo do menu suspenso */
     }
 
     .dropdown-item {
-        color: #FDBE1D;
-        /* Cor do texto do item do menu suspenso */
+        color: #FDBE1D; /* Cor do texto do item do menu suspenso */
     }
 
     .dropdown-item:hover {
-        background-color: #495057;
-        /* Cor de fundo ao passar o mouse */
+        background-color: #495057; /* Cor de fundo ao passar o mouse */
     }
 
     .nav-item.dropdown:hover .dropdown-menu {
