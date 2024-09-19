@@ -1,15 +1,16 @@
-module.exports.busca_login = function(app, req, res){
-    res.render("login/login");
+module.exports.busca_login = function (app, req, res) {
+    res.render("login/login", { flagAdmin: req.session.autorizado || null, codLogado: req.session.codLogado || null });
 }
 
-module.exports.cadastrar_usuario = function(app, req, res){
+
+module.exports.cadastrar_usuario = function (app, req, res) {
     res.render("login/cadastro_usuario");
 }
 
 module.exports.salvar_usuario = function (app, req, res) {
     var usuario = req.body;
     var erros = [];
-    
+
     // Verificações de campos obrigatórios
     if (!usuario.email || !usuario.email.trim()) {
         erros.push({ msg: "O campo E-mail é obrigatório!" });
@@ -60,9 +61,9 @@ module.exports.salvar_usuario = function (app, req, res) {
 
 module.exports.valida_login = function (app, req, res) {
     var campusDeUsuario = req.body;
-    
+
     var erros = [];
-    
+
     if (!campusDeUsuario.email || !campusDeUsuario.email.trim()) {
         erros.push({ msg: "O campo E-mail é obrigatório!" });
     }
@@ -80,15 +81,16 @@ module.exports.valida_login = function (app, req, res) {
 
     autentificacao.getLogin(campusDeUsuario, function (error, result) {
         if (result.length != 0) {
+            console.log(result)
             req.session.autorizado = 'usuario';
-            req.session.codLogado = result[0].IDCliente;
-            res.redirect('/home');
+            req.session.codLogado = result[0].codUsuario; // Definindo o codLogado
+            res.redirect(`/home`);
             return;
         } else {
             autentificacao.getLoginAdm(campusDeUsuario, function (error, result) {
                 if (result.length != 0) {
                     req.session.autorizado = 'adm';
-                    req.session.codLogado = result[0].IDAdm;
+                    req.session.codLogado = result[0].codAdmin; // Definindo o codLogado
                     res.redirect('/home');
                     return;
                 }
@@ -99,5 +101,20 @@ module.exports.valida_login = function (app, req, res) {
         }
     });
 }
+
+module.exports.sair = function (req, res) {
+    req.session.destroy(function (err) {
+        if (err) {
+            console.log('Erro ao tentar destruir a sessão:', err);
+            res.redirect('/home'); 
+        } else {
+            res.redirect('/login');
+        }
+    });
+};
+
+
+
+
 
 
