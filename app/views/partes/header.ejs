@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-md border-bottom bg-dark" data-bs-theme="dark">
+    <div class="container d-flex align-items-center">
+        <a class="navbar-brand d-md-none" href="#">
+            <svg class="bi" width="24" height="24">
+                <use xlink:href="#aperture" />
+            </svg>
+            Aperture
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+            aria-controls="offcanvas" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasLabel">Aperture</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="centro navbar-nav flex-grow-1 justify-content-between bg-dark">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">
+                            <img src="/login/LogoR77eventos.png" alt="Logo R77 Eventos" style="max-width: 85px;">
+                        </a>
+                    </li>
+                    <% if (flagAdmin==='adm' ) { %>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#">Sobre</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-warning" href="#" id="dropdownGaleria" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Galeria
+                            </a>
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownGaleria">
+                                <li><a class="dropdown-item text-warning" href="#">Ver Galeria</a></li>
+                                <li><a class="dropdown-item text-warning" href="#">Adicionar Fotos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-warning" href="#" id="dropdownEventos" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Eventos
+                            </a>
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownEventos">
+                                <li><a class="dropdown-item text-warning" href="#">Ver Todos os Eventos</a></li>
+                                <li><a class="dropdown-item text-warning" href="#">Adicionar Eventos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
+                    <% } else if (flagAdmin==='usuario' ) { %>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#">Galeria</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="#">Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
+                    <% } else { %>
+                        <li class="nav-item"><a class="nav-link text-warning" href="/cadastrar">Cadastre-se</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .navbar-nav li.nav-item a.nav-link {
+        font-size: 20px;
+    }
+
+    .dropdown-menu {
+        background-color: #343a40; /* Cor de fundo do menu suspenso */
+    }
+
+    .dropdown-item {
+        color: #FDBE1D; /* Cor do texto do item do menu suspenso */
+    }
+
+    .dropdown-item:hover {
+        background-color: #495057; /* Cor de fundo ao passar o mouse */
+    }
+
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        display: none;
+    }
+
+    @media (min-width: 768px) {
+        .centro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+</style>

@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>R77 Eventos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5bece6c669.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="progressbar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+</head>
+
+<body>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+        .bd-mode-toggle .dropdown-menu .active .bi {
+            display: block !important;
+        }
+
+        /* Efeito de hover no navbar */
+        .nav-link:hover,
+        .navbar-brand img:hover {
+            color: #ffffff !important;
+            /* Altere essa cor conforme necessário */
+            transform: scale(1.1);
+            /* Aumenta o tamanho do link */
+            transition: transform 0.3s ease, color 0.3s ease;
+            /* Transição suave */
+        }
+
+        /* Efeito de hover na imagem do meio do header */
+        .navbar-nav .nav-item:nth-child(4) img:hover {
+            transform: scale(1.1);
+            /* Aumenta o tamanho da imagem */
+            transition: transform 0.3s ease;
+            /* Transição suave */
+        }
+
+        /* Transição inicial para os links e imagens */
+        .nav-link,
+        .navbar-brand img {
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-nav .nav-item:nth-child(4) img {
+            transition: transform 0.2s ease;
+        }
+
+        body {
+            background-color: rgb(253, 190, 29);
+            font-weight: 630;
+            font-style: normal;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+            <path
+                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path
+                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+            <path
+                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path
+                d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+        </symbol>
+    </svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path
+                d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+            <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        </symbol>
+    </svg>
+
+    <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
+
+        <div id="carouselExampleDark" class="carousel carousel-light slide" style="color: white;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="/home/full-shot-senior-woman-with-motorcycle.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <A href="sobre.html" class="linkInicial">
+                            <h5>Sobre a R77</h5>
+                        </A>
+                        <p>Somos uma empresa focada no Moto Turismo. Conheça mais Sobre nós.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="/home/beautiful-brunette-woman-sitting-retro-style-motorcycle-looking-herself-mirrors.jpg"
+                        class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/home/couple-riding-motorbike-around-beautiful-landscape.jpg" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        </div>
+
+
+
+
+
+
+        <div class="px-4 pt-5 my-5 text-center border-bottom">
+            <h1 class="display-4 fw-bold text-body-emphasis">Apresentação</h1>
+            <div class="col-lg-6 mx-auto">
+                <br>
+                <p class="textoConteudo">R77 Eventos vem consolidando no mercado de entretenimento focada no seguimento
+                    do Moto Turismo, aprimorando e
+                    impulsionando as oportunidades comerciais antes, durante e depois de cada um dos eventos, e
+                    preservando os elementos culturais que vem fomentando um mercado
+                    cada dia mais forte.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                </div>
+            </div>
+            <div class="overflow-hidden" style="max-height: 30vh;">
+                <div class="container px-5">
+                    <img src="/home/FundoP.jpg" class="img-fluid border rounded-3" alt="Example image" width="900"
+                        height="900" loading="lazy">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="b-example-divider"></div>
+        <div class="fundoPreto">
+            <div class="container col-xxl-8 px-4 py-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img src="/home/Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg"
+                            class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500"
+                            loading="lazy">
+                    </div>
+                    <div class="col-lg-6 text-light">
+                        <h1 class="display-5 fw-bold lh-1 mb-3 text-light">Sobre os Eventos</h1><br>
+                        <p class="textoConteudo text-light">Estes eventos tem produzido resultados significativos, o
+                            moto turista gasta em média R$ 400,00 por dia sendo a programação dos eventos de 20 horas em
+                            02 dias; a taxa de ocupação atinge sempre uma das maiores médias, como exemplo de evento
+                            particular (sem investimento público) podemos listar o My Helmet Rock Hotel que acontece em
+                            janeiro na
+                            unidade Domingos Martins do Sesc e ocupa 100% dos 308 quartos com mais de 700 pessoas
+                            somente na unidade, sendo a abrangência para diversas pousadas e hospedagens como Airbnb.
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="b-example-divider"></div>
+
+        </main>
+
+
+
+
+
+        <style>
+            /* Adiciona um pouco de espaçamento entre os cards */
+            .card {
+                margin-bottom: 1rem;
+                /* Espaçamento entre os cards na vertical */
+            }
+
+            /* Adiciona um espaçamento entre os cards e as bordas da div principal */
+            .row {
+                margin-top: 2rem;
+                /* Espaçamento superior entre a row e a borda superior da div principal */
+                margin-bottom: 2rem;
+                /* Espaçamento inferior entre a row e a borda inferior da div principal */
+            }
+
+            /* Em dispositivos móveis, os cards devem ocupar 50% da largura */
+            @media (max-width: 576px) {
+                .col-6 {
+                    flex: 0 0 50%;
+                    /* Cada card ocupa 50% da largura */
+                    max-width: 50%;
+                    /* Cada card ocupa 50% da largura */
+                }
+            }
+
+            /* Em dispositivos maiores, os cards devem ocupar 33.33% da largura */
+            @media (min-width: 577px) {
+                .col-md-4 {
+                    flex: 0 0 33.33%;
+                    /* Cada card ocupa 33.33% da largura */
+                    max-width: 33.33%;
+                    /* Cada card ocupa 33.33% da largura */
+                }
+            }
+
+            .linkInicial {
+                text-decoration: none;
+                color: white;
+            }
+
+            .linkInicial:hover {
+                color: #FDBE1D;
+            }
+        </style>
+        </head>
+
+        <body>
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-6 col-md-4">
+                        <div class="card h-100">
+                            <img src="arvi.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4">
+                        <div class="card h-100">
+                            <img src="/home/bag.jpeg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This card has supporting text below as a natural lead-in to
+                                    additional content.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4">
+                        <div class="card h-100">
+                            <img src="agua na folha2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">Last updated 3 mins ago</small>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+
+
+
+
+
+            <div style="background-color:rgb(78, 78, 78);">
+
+                <div class="b-example-divider"></div>
+
+                <footer class="container py-5 text-light">
+                    <div class="row">
+                        <div class="col-12 col-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                class="d-block mb-2" role="img" viewBox="0 0 24 24">
+                                <title>Product</title>
+                                <circle cx="12" cy="12" r="10" />
+                                <path
+                                    d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+                            </svg>
+                            <small class="d-block mb-3">&copy; 2017–2024</small>
+                        </div>
+                        <div class="col-6 col-md">
+                            <h5>Features</h5>
+                            <ul class="list-unstyled text-small">
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Cool stuff</a>
+                                </li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Random
+                                        feature</a></li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Team
+                                        feature</a></li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Stuff for
+                                        developers</a></li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Another
+                                        one</a></li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Last time</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md">
+                            <h5>Resources</h5>
+                            <ul class="list-unstyled text-small">
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Resource
+                                        name</a></li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Resource</a>
+                                </li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Another
+                                        resource</a></li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Final
+                                        resource</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md">
+                            <h5>Resources</h5>
+                            <ul class="list-unstyled text-small">
+                                <li><a class="link-secondary text-decoration-none  text-white-50" href="#">Business</a>
+                                </li>
+                                <li><a class="link-secondary text-decoration-none  text-white-50" href="#">Education</a>
+                                </li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Government</a>
+                                </li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Gaming</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md">
+                            <h5>About</h5>
+                            <ul class="list-unstyled text-small">
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Team</a></li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Locations</a>
+                                </li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Privacy</a>
+                                </li>
+                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Terms</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+
+
+            </div> <!--Fechando a div que da cor do background do site-->
+
+        </body>
+
+</html>

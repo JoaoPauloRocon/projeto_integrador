@@ -20,6 +20,14 @@ eventosDAO.prototype.getLoginAdm = function (campusDeUsuario, callback) {
     this._connection.query("SELECT codAdmin FROM admin WHERE email = '" + campusDeUsuario.email + "'AND senha ='" + campusDeUsuario.senha + "'", callback)
 };
 
+eventosDAO.prototype.getUsuarioById = function (id, callback) {
+    this._connection.query("SELECT * FROM usuario WHERE codUsuario = ?", [id], callback);
+};
+
+eventosDAO.prototype.getAdminById = function (id, callback) {
+    this._connection.query("SELECT * FROM admin WHERE codAdmin = ?", [id], callback);
+};
+
 module.exports = function () {
     return eventosDAO;
 }
