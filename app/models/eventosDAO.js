@@ -28,6 +28,15 @@ eventosDAO.prototype.getAdminById = function (id, callback) {
     this._connection.query("SELECT * FROM admin WHERE codAdmin = ?", [id], callback);
 };
 
+eventosDAO.prototype.salvarGaleria = function (galeria, callback) {
+    this._connection.query("INSERT INTO galeria SET ? ", galeria, callback)
+};
+
+eventosDAO.prototype.getGaleria = function (callback) {
+    this._connection.query("SELECT * FROM galeria", callback);
+};
+
+
 module.exports = function () {
     return eventosDAO;
 }

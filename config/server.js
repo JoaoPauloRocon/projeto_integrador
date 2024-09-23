@@ -20,7 +20,7 @@ app.upload = configMulter;
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(expressValidator());
+app.use(expressValidator());
 app.use(express.static('public')); // Correção aqui
 app.use(expressSession({
     secret: 'fdghfhdghuhd',

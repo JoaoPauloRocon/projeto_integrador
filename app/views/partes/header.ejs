@@ -25,13 +25,13 @@
                     <% if (flagAdmin==='adm' ) { %>
                         <li class="nav-item"><a class="nav-link text-warning" href="/home">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-warning" href="#" id="dropdownGaleria" role="button"
+                            <a class="nav-link dropdown-toggle text-warning" href="/galeria" id="dropdownGaleria" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Galeria
                             </a>
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownGaleria">
-                                <li><a class="dropdown-item text-warning" href="#">Ver Galeria</a></li>
-                                <li><a class="dropdown-item text-warning" href="#">Adicionar Fotos</a></li>
+                                <li><a class="dropdown-item text-warning" href="/galeria">Ver Galeria</a></li>
+                                <li><a class="dropdown-item text-warning" href="/add_galeria">Adicionar Fotos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -49,7 +49,7 @@
                         <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
                         <% } else if (flagAdmin==='usuario' ) { %>
                             <li class="nav-item"><a class="nav-link text-warning" href="/home">Home</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="#">Galeria</a></li>
+                            <li class="nav-item"><a class="nav-link text-warning" href="/galeria">Galeria</a></li>
                             <li class="nav-item"><a class="nav-link text-warning" href="#">Eventos</a></li>
                             <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
                             <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>
