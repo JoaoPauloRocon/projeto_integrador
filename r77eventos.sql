@@ -24,9 +24,11 @@ CREATE TABLE `admin` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
   PRIMARY KEY (`codAdmin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `admin` */
+
+insert  into `admin`(`codAdmin`,`email`,`senha`) values (1,'admin@example.com','senha_segura'),(2,'admin@gmail.com','admin');
 
 /*Table structure for table `avaliacao` */
 
@@ -71,6 +73,22 @@ CREATE TABLE `eventos` (
 
 /*Data for the table `eventos` */
 
+/*Table structure for table `galeria` */
+
+DROP TABLE IF EXISTS `galeria`;
+
+CREATE TABLE `galeria` (
+  `img` varchar(200) DEFAULT NULL,
+  `descricao` varchar(500) DEFAULT NULL,
+  `titulo` varchar(200) DEFAULT NULL,
+  `idImg` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idImg`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `galeria` */
+
+insert  into `galeria`(`img`,`descricao`,`titulo`,`idImg`) values ('1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','sem descrição','EVENTO 1',1),('1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','sem descição','EVENTO 2',2);
+
 /*Table structure for table `usuario` */
 
 DROP TABLE IF EXISTS `usuario`;
@@ -84,11 +102,11 @@ CREATE TABLE `usuario` (
   `CPF` varchar(100) DEFAULT NULL,
   `telefone` varchar(100) NOT NULL,
   PRIMARY KEY (`codUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `usuario` */
 
-insert  into `usuario`(`codUsuario`,`email`,`senha`,`nome`,`dataNascimento`,`CPF`,`telefone`) values (1,'joaopaulorocon@gmail.com','12345678','JOAO PAULO ROCON','2004-03-22','191.825.127','2147483647'),(2,'joaopaulorocon@gmail.com','12345678','JOAO PAULO ROCON','2004-03-22','191.825.127','2147483647'),(3,'luiza@email.com','1234567','Luiza Klug Adami','2007-01-10','191.825.127-44','2147483647'),(4,'luiza@email.com','1234567','Luiza Klug Adami','2007-01-10','191.825.127-44','2147483647'),(5,'luiza@email.com','1234567','Luiza Klug Adami','2007-01-10','191.825.127-44','2147483647'),(6,'giulia@gmail.com','12345678','Giulia Lopes','2006-08-31','191.825.127-44','2147483647'),(7,'joaopaulorocon@gmail.com','12345678','JOAO PAULO ROCON','2004-03-22','191.825.127-44','27997805450');
+insert  into `usuario`(`codUsuario`,`email`,`senha`,`nome`,`dataNascimento`,`CPF`,`telefone`) values (1,'joaopaulorocon@gmail.com','12345678','JOAO PAULO ROCON','2004-03-22','191.825.127-44','27997805450');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
