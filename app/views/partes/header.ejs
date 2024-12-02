@@ -40,8 +40,8 @@
                                 Eventos
                             </a>
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownEventos">
-                                <li><a class="dropdown-item text-warning" href="#">Ver Todos os Eventos</a></li>
-                                <li><a class="dropdown-item text-warning" href="#">Adicionar Eventos</a></li>
+                                <li><a class="dropdown-item text-warning" href="/eventos">Ver Todos os Eventos</a></li>
+                                <li><a class="dropdown-item text-warning" href="/add_evento">Adicionar Eventos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
@@ -50,12 +50,13 @@
                         <% } else if (flagAdmin==='usuario' ) { %>
                             <li class="nav-item"><a class="nav-link text-warning" href="/home">Home</a></li>
                             <li class="nav-item"><a class="nav-link text-warning" href="/galeria">Galeria</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="#">Eventos</a></li>
+                            <li class="nav-item"><a class="nav-link text-warning" href="/eventos">Eventos</a></li>
                             <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
                             <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>
                             <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
                             <% } else { %>
                                 <li class="nav-item"><a class="nav-link text-warning" href="/home">Home</a></li>
+                                <li class="nav-item"><a class="nav-link text-warning" href="/galeria">Galeria</a></li>
                                 <li class="nav-item"><a class="nav-link text-warning" href="/login">Login</a></li>
                                 <li class="nav-item"><a class="nav-link text-warning" href="/cadastrar">Cadastre-se</a>
                                 <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>

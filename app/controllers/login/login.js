@@ -4,7 +4,7 @@ module.exports.busca_login = function (app, req, res) {
 
 
 module.exports.cadastrar_usuario = function (app, req, res) {
-    res.render("login/cadastro_usuario");
+    res.render("login/cadastro_usuario", {flagAdmin: null, codLogado: null });
 }
 
 module.exports.salvar_usuario = function (app, req, res) {

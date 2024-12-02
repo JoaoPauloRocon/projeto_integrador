@@ -36,6 +36,47 @@ eventosDAO.prototype.getGaleria = function (callback) {
     this._connection.query("SELECT * FROM galeria", callback);
 };
 
+eventosDAO.prototype.getEventos = function(callback) {
+    this._connection.query('SELECT * FROM eventos', callback);
+};
+
+eventosDAO.prototype.salvarEvento = function(evento, callback) {
+    console.log(evento)
+    this._connection.query('INSERT INTO eventos (tituloEvento, descricaoEvento, anoEvento, cidadeEvento) VALUES (?, ?, ?, ?)', 
+    [evento.titulo, evento.descricao, evento.ano, evento.cidade], callback);
+};
+
+eventosDAO.prototype.salvarImagemEvento = function(imagemEvento, callback) {
+    console.log(imagemEvento)
+    this._connection.query('INSERT INTO imagens_eventos (codEvento, imgEvento, descricaoImagem) VALUES (?, ?, ?)', 
+    [imagemEvento.codEvento, imagemEvento.imgEvento, imagemEvento.descricaoImagem], callback);
+};
+
+
+eventosDAO.prototype.getImagensByEvento = function(codEvento, callback) {
+    this._connection.query('SELECT * FROM imagens_eventos WHERE codEvento = ?', [codEvento], callback);
+};
+
+eventosDAO.prototype.getEventos = function(callback) {
+    const sql = `
+        SELECT e.codEvento, e.tituloEvento, e.descricaoEvento, e.anoEvento, e.cidadeEvento, i.imgEvento
+        FROM eventos e
+        LEFT JOIN imagens_eventos i ON e.codEvento = i.codEvento
+        ORDER BY e.anoEvento DESC, e.cidadeEvento ASC
+    `;
+    this._connection.query(sql, callback);
+};
+
+eventosDAO.prototype.getEventoById = function(id, callback) {
+    const sql = `
+        SELECT e.*, i.imgEvento
+        FROM eventos e
+        LEFT JOIN imagens_eventos i ON e.codEvento = i.codEvento
+        WHERE e.codEvento = ?
+    `;
+    this._connection.query(sql, [id], callback);
+};
+
 
 module.exports = function () {
     return eventosDAO;
