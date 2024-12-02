@@ -5,6 +5,8 @@ var consign = require('consign');
 var expressValidator = require('express-validator');
 var expressSession = require('express-session');
 const multer = require('multer');
+const path = require('path');
+
 const configMulter = multer({
     storage: multer.diskStorage({
         destination: function (req, file, callback) {
