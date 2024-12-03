@@ -28,6 +28,48 @@
 
   <style>
 
+    
+footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff!important; /* Amarelo para hover */
+    text-decoration: none; /* Remove sublinhado no hover */
+}
+
+footer h5 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+footer img {
+    filter: brightness(0) invert(1); /* Deixa a logo branca */
+}
+
+footer .fab {
+    margin-right: 0.5rem; /* Espaçamento antes do texto */
+}
+
+    .nav-link:hover,
+        .navbar-brand img:hover {
+            color: #ffffff !important;
+            /* Altere essa cor conforme necessário */
+            transform: scale(1.1);
+            /* Aumenta o tamanho do link */
+            transition: transform 0.3s ease, color 0.3s ease;
+            /* Transição suave */
+        }
+
+    .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgb(237, 177, 26);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -169,67 +211,66 @@
         
     </style>
 
-    <div class="b-example-divider"></div>
-
-    <div style="background-color:rgb(78, 78, 78);">
+<div class="b-example-divider"></div>
 
 
-      <div class="b-example-divider"></div>
+<footer class="bg-black text-light py-5">
+  <div class="container">
+      <div class="row">
+          <!-- Logotipo e direitos autorais -->
+          <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
+              <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
+              <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
+          </div>
 
+          <!-- Links úteis -->
+          <div class="col-6 col-md-2">
+              <h5 class="text-warning">Dúvidas?</h5>
+              <ul class="list-unstyled">
+                  <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
+                  <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
+                  <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
+                  <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
+              </ul>
+          </div>
 
-      <footer class="container py-5 text-light">
-        <div class="row">
-          <div class="col-12 col-md">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img"
-              viewBox="0 0 24 24">
-              <title>Product</title>
-              <circle cx="12" cy="12" r="10" />
-              <path
-                d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
-            </svg>
-            <small class="d-block mb-3">&copy; 2017–2024</small>
+          <!-- Conta -->
+          <div class="col-6 col-md-2">
+              <h5 class="text-warning">Conta</h5>
+              <ul class="list-unstyled">
+                  <li><a class="text-white-50 text-decoration-none" href="#">Minha Conta</a></li>
+                  <li><a class="text-white-50 text-decoration-none" href="#">Cadastro</a></li>
+                  <li><a class="text-white-50 text-decoration-none" href="#">Login</a></li>
+              </ul>
           </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Cool stuff</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Random feature</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Team feature</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Stuff for developers</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Another one</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Last time</a></li>
-            </ul>
+
+          <!-- Redes Sociais -->
+          <div class="col-6 col-md-2">
+              <h5 class="text-warning">Redes Sociais</h5>
+              <ul class="list-unstyled">
+                  <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                  <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+              </ul>
           </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Resource name</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Resource</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Another resource</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Final resource</a></li>
-            </ul>
+
+          <!-- Suporte -->
+          <div class="col-6 col-md-2">
+              <h5 class="text-warning">Suporte</h5>
+              <ul class="list-unstyled">
+                  <li><a class="text-white-50 text-decoration-none" href="#">Fale Conosco</a></li>
+                  <li><a class="text-white-50 text-decoration-none" href="#">Parcerias e Patrocínios</a></li>
+              </ul>
           </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary text-decoration-none  text-white-50" href="#">Business</a></li>
-              <li><a class="link-secondary text-decoration-none  text-white-50" href="#">Education</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Government</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Gaming</a></li>
-            </ul>
+      </div>
+
+      <!-- Barra inferior -->
+      <div class="row mt-4">
+          <div class="col-12 text-center">
+              <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
           </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Team</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Locations</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Privacy</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+      </div>
+  </div>
+</footer>
 
 
     </div> <!--Fechando a div que da cor do background do site-->
