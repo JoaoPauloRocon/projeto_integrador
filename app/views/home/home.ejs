@@ -26,6 +26,7 @@
 
 <body>
     <style>
+        
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -43,7 +44,7 @@
         .b-example-divider {
             width: 100%;
             height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
+            background-color: rgb(237, 177, 26);
             border: solid rgba(0, 0, 0, .15);
             border-width: 1px 0;
             box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
@@ -127,6 +128,7 @@
         .navbar-brand img {
             transition: transform 0.3s ease;
         }
+    
 
         .navbar-nav .nav-item:nth-child(4) img {
             transition: transform 0.2s ease;
@@ -139,6 +141,13 @@
             display: flex;
             flex-direction: column;
         }
+
+        .textoConteudo{
+            font-size: 17px;
+            color: black;
+
+        }
+
     </style>
 
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -233,18 +242,14 @@
             <h1 class="display-4 fw-bold text-body-emphasis">Apresentação</h1>
             <div class="col-lg-6 mx-auto">
                 <br>
-                <p class="textoConteudo">R77 Eventos vem consolidando no mercado de entretenimento focada no seguimento
-                    do Moto Turismo, aprimorando e
-                    impulsionando as oportunidades comerciais antes, durante e depois de cada um dos eventos, e
-                    preservando os elementos culturais que vem fomentando um mercado
-                    cada dia mais forte.</p>
+                <p class="textoConteudo">A R77 Eventos é uma empresa que está à quase 2 anos no mercado tendo como seu primeiro evento oficial a 1ª edição do My Helmet Rock Hotel em Janeiro de 2023, com seus fundadores sendo: Robert Lopes (mais conhecido como Robinho) e Ediane Lopes.<br><br>
+                    Anterior a fundação da R77 Eventos, a marca era Robinho Bode, porém para dar uma identidade própria a empresa, foi acordada a escolha de novo nome e logo, nascendo assim a marca R77 Eventos "Entretenimento que surpreende com qualidade."</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
                 </div>
             </div>
             <div class="overflow-hidden" style="max-height: 30vh;">
                 <div class="container px-5">
-                    <img src="/home/FundoP.jpg" class="img-fluid border rounded-3" alt="Example image" width="900"
-                        height="900" loading="lazy">
+                    <img src="/home/FundoP.jpg" class="img-fluid border rounded-3" alt="Example image" loading="lazy">
 
                 </div>
             </div>
@@ -259,9 +264,9 @@
                             class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500"
                             loading="lazy">
                     </div>
-                    <div class="col-lg-6 text-light">
-                        <h1 class="display-5 fw-bold lh-1 mb-3 text-light">Sobre os Eventos</h1><br>
-                        <p class="textoConteudo text-light">Estes eventos tem produzido resultados significativos, o
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold lh-1 mb-3">Sobre os Eventos</h1><br>
+                        <p class="textoConteudo">Estes eventos tem produzido resultados significativos, o
                             moto turista gasta em média R$ 400,00 por dia sendo a programação dos eventos de 20 horas em
                             02 dias; a taxa de ocupação atinge sempre uma das maiores médias, como exemplo de evento
                             particular (sem investimento público) podemos listar o My Helmet Rock Hotel que acontece em
@@ -322,7 +327,31 @@
             .linkInicial:hover {
                 color: #FDBE1D;
             }
-        </style>
+
+            footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff!important; /* Amarelo para hover */
+    text-decoration: none; /* Remove sublinhado no hover */
+}
+
+footer h5 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+footer img {
+    filter: brightness(0) invert(1); /* Deixa a logo branca */
+}
+
+footer .fab {
+    margin-right: 0.5rem; /* Espaçamento antes do texto */
+}
+
+</style>
+
         </head>
 
         <body>
@@ -344,7 +373,7 @@
 
                     <div class="col-6 col-md-4">
                         <div class="card h-100">
-                            <img src="/home/bag.jpeg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">This card has supporting text below as a natural lead-in to
@@ -378,75 +407,64 @@
 
                 <div class="b-example-divider"></div>
 
-                <footer class="container py-5 text-light">
-                    <div class="row">
-                        <div class="col-12 col-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                class="d-block mb-2" role="img" viewBox="0 0 24 24">
-                                <title>Product</title>
-                                <circle cx="12" cy="12" r="10" />
-                                <path
-                                    d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
-                            </svg>
-                            <small class="d-block mb-3">&copy; 2017–2024</small>
+                <footer class="bg-black text-light py-5">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Logotipo e direitos autorais -->
+                            <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
+                                <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
+                                <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
+                            </div>
+                
+                            <!-- Links úteis -->
+                            <div class="col-6 col-md-2">
+                                <h5 class="text-warning">Dúvidas?</h5>
+                                <ul class="list-unstyled">
+                                    <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
+                                </ul>
+                            </div>
+                
+                            <!-- Conta -->
+                            <div class="col-6 col-md-2">
+                                <h5 class="text-warning">Conta</h5>
+                                <ul class="list-unstyled">
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Minha Conta</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Cadastro</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Login</a></li>
+                                </ul>
+                            </div>
+                
+                            <!-- Redes Sociais -->
+                            <div class="col-6 col-md-2">
+                                <h5 class="text-warning">Redes Sociais</h5>
+                                <ul class="list-unstyled">
+                                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                                </ul>
+                            </div>
+                
+                            <!-- Suporte -->
+                            <div class="col-6 col-md-2">
+                                <h5 class="text-warning">Suporte</h5>
+                                <ul class="list-unstyled">
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Fale Conosco</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Parcerias e Patrocínios</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-6 col-md">
-                            <h5>Features</h5>
-                            <ul class="list-unstyled text-small">
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Cool stuff</a>
-                                </li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Random
-                                        feature</a></li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Team
-                                        feature</a></li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Stuff for
-                                        developers</a></li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Another
-                                        one</a></li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Last time</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 col-md">
-                            <h5>Resources</h5>
-                            <ul class="list-unstyled text-small">
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Resource
-                                        name</a></li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Resource</a>
-                                </li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Another
-                                        resource</a></li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Final
-                                        resource</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6 col-md">
-                            <h5>Resources</h5>
-                            <ul class="list-unstyled text-small">
-                                <li><a class="link-secondary text-decoration-none  text-white-50" href="#">Business</a>
-                                </li>
-                                <li><a class="link-secondary text-decoration-none  text-white-50" href="#">Education</a>
-                                </li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Government</a>
-                                </li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Gaming</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 col-md">
-                            <h5>About</h5>
-                            <ul class="list-unstyled text-small">
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Team</a></li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Locations</a>
-                                </li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Privacy</a>
-                                </li>
-                                <li><a class="link-secondary text-decoration-none text-white-50" href="#">Terms</a></li>
-                            </ul>
+                
+                        <!-- Barra inferior -->
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
+                            </div>
                         </div>
                     </div>
                 </footer>
+                
 
 
             </div> <!--Fechando a div que da cor do background do site-->

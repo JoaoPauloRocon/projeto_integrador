@@ -17,128 +17,142 @@
     <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 </head>
 <body>
+  <body>
     <style>
-        .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          user-select: none;
-        }
-    
-        @media (min-width: 768px) {
-          .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-          }
-        }
-    
-        .b-example-divider {
-          width: 100%;
-          height: 3rem;
-          background-color: rgba(0, 0, 0, 0.1);
-          border: solid rgba(0, 0, 0, .15);
-          border-width: 1px 0;
-          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-    
-        .b-example-vr {
-          flex-shrink: 0;
-          width: 1.5rem;
-          height: 100vh;
-        }
-    
-        .bi {
-          vertical-align: -.125em;
-          fill: currentColor;
-        }
-    
-        .nav-scroller {
-          position: relative;
-          z-index: 2;
-          height: 2.75rem;
-          overflow-y: hidden;
-        }
-    
-        .nav-scroller .nav {
-          display: flex;
-          flex-wrap: nowrap;
-          padding-bottom: 1rem;
-          margin-top: -1px;
-          overflow-x: auto;
-          text-align: center;
-          white-space: nowrap;
-          -webkit-overflow-scrolling: touch;
-        }
-    
-        .btn-bd-primary {
-          --bd-violet-bg: #712cf9;
-          --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-    
-          --bs-btn-font-weight: 600;
-          --bs-btn-color: var(--bs-white);
-          --bs-btn-bg: var(--bd-violet-bg);
-          --bs-btn-border-color: var(--bd-violet-bg);
-          --bs-btn-hover-color: var(--bs-white);
-          --bs-btn-hover-bg: #6528e0;
-          --bs-btn-hover-border-color: #6528e0;
-          --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-          --bs-btn-active-color: var(--bs-btn-hover-color);
-          --bs-btn-active-bg: #5a23c8;
-          --bs-btn-active-border-color: #5a23c8;
-        }
-    
-        .bd-mode-toggle {
-          z-index: 1500;
-        }
-    
-        .bd-mode-toggle .dropdown-menu .active .bi {
-          display: block !important;
-        }
-    
         body {
-          background-color: rgb(253, 190, 29);
-          font-weight: 630;
-          font-style: normal;
-          display: flex;
-          flex-direction: column;
+            background-color: rgb(253, 190, 29);
+            font-weight: 630;
+            font-style: normal;
         }
-      </style>
+
+        footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff!important; /* Amarelo para hover */
+    text-decoration: none; /* Remove sublinhado no hover */
+}
+
+footer h5 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+footer img {
+    filter: brightness(0) invert(1); /* Deixa a logo branca */
+}
+
+footer .fab {
+    margin-right: 0.5rem; /* Espaçamento antes do texto */
+}
+
+        .nav-link:hover,
+        .navbar-brand img:hover {
+            color: #ffffff !important;
+            /* Altere essa cor conforme necessário */
+            transform: scale(1.1);
+            /* Aumenta o tamanho do link */
+            transition: transform 0.3s ease, color 0.3s ease;
+            /* Transição suave */
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgb(237, 177, 26);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .form-container {
+            max-width: 500px; /* Diminuindo o tamanho */
+            width: 100%;
+        }
+
+        .form-container form {
+            padding: 1.5rem; /* Diminuir espaçamento interno */
+            border-radius: 0.5rem;
+            background: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container img {
+            display: block;
+            margin: 0 auto 20px; /* Centraliza e adiciona margem inferior */
+            max-width: 100px; /* Aumenta o tamanho da imagem */
+        }
+
+        .form-container a {
+            font-size: 1.1rem; /* Aumenta o tamanho do texto do link */
+            color: #007bff; /* Cor padrão do Bootstrap */
+        }
+
+        .form-container a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        .error-messages {
+            margin-top: 10px;
+        }
+        
+        .textoBaixo{
+            font-size: 12px;
+        }
+
+    </style>
+
+
     <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
     <div class="container col-xl-20 col-xxl-8 px-4 py-5">
-        <div class="row align-items-center g-lg-5 py-5">
-            <div class="col-lg-5 text-center text-lg-start">
-                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Cadastre-se</h1>
-                <p class="col-lg-10 fs-4">Preencha o formulário abaixo para criar sua conta.</p>
-                <div class="login-button mt-3">
-                    <a href="/login" class="btn btn-primary">Entrar</a>
-                </div>
-            </div>
-            <div class="col-md-10 mx-auto col-lg-6">
-                <form action="/cadastro_usuarios" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail">
-                        <label for="email">E-mail</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
-                        <label for="password">Senha</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu primeiro nome">
-                        <label for="nome">Nome</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="Digite sua data de nascimento">
-                        <label for="dataNascimento">Data de Nascimento</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
-                        <label for="cpf">CPF</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite seu telefone">
-                        <label for="telefone">Telefone</label>
-                    </div>
+
+                    <div class="col-md-10 mx-auto col-lg-6">
+                    <div class="form-container">
+
+                      <form action="/cadastro_usuarios" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+              
+                          <img src="/login/LogoR77eventos.png" alt="Logo R77 Eventos">
+              
+                          <h1 class="h4 mb-4 text-center">Cadastre-se</h1>
+                          <div class="form-floating mb-3">
+                              <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail">
+                              <label for="email">Email</label>
+                          </div>
+                          <div class="form-floating mb-3">
+                              <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
+                              <label for="senha">Senha</label>
+                          </div>
+                          <div class="form-floating mb-3">
+                              <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu primeiro nome">
+                              <label for="nome">Nome</label>
+                          </div>
+                          <div class="form-floating mb-3">
+                              <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
+                                  placeholder="Digite sua data de nascimento">
+                              <label for="dataNascimento">Data de Nascimento</label>
+                          </div>
+                          <div class="form-floating mb-3">
+                              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
+                              <label for="cpf">CPF</label>
+                          </div>
+                          <div class="form-floating mb-3">
+                              <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite seu telefone">
+                              <label for="telefone">Telefone</label>
+                          </div>
+                          <div class="checkbox mb-3">
+                              <label>
+                                  <input type="checkbox" value="remember-me"> Lembrar minha senha
+                              </label>
+                          </div>
+                       
+
+
                     <% if (typeof validacao !== 'undefined' && validacao.length > 0) { %>
                         <div class="error-messages">
                             <% validacao.forEach(function(error) { %>
@@ -146,83 +160,83 @@
                             <% }) %>
                         </div>
                     <% } %>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Continuar</button>
+
+                    <a href="/login">Entrar</a>
+                    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Continuar</button>
+                    <hr class="my-4">
+                    <small class="text-body-secondary d-block text-center textoBaixo">
+                        Ao se cadastrar, você poderá logar no site para aproveitar os benefícios da R77 EVENTOS.
+                    </small>
+
                 </form>
             </div>
-        </div>
-        
+        </div>    
     </div>
-    
-    <style>
-        .error-messages {
-            margin-top: 10px;
-        }
-        .error {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
+ </div>
+
+
     <div class="b-example-divider"></div>
 
-    <div style="background-color:rgb(78, 78, 78);">
 
 
-      <div class="b-example-divider"></div>
-
-
-      <footer class="container py-5 text-light">
-        <div class="row">
-          <div class="col-12 col-md">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img"
-              viewBox="0 0 24 24">
-              <title>Product</title>
-              <circle cx="12" cy="12" r="10" />
-              <path
-                d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
-            </svg>
-            <small class="d-block mb-3">&copy; 2017–2024</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Cool stuff</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Random feature</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Team feature</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Stuff for developers</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Another one</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Last time</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Resource name</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Resource</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Another resource</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Final resource</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary text-decoration-none  text-white-50" href="#">Business</a></li>
-              <li><a class="link-secondary text-decoration-none  text-white-50" href="#">Education</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Government</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Gaming</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Team</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Locations</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Privacy</a></li>
-              <li><a class="link-secondary text-decoration-none text-white-50" href="#">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+                <footer class="bg-black text-light py-5">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Logotipo e direitos autorais -->
+                            <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
+                                <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
+                                <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
+                            </div>
+                
+                            <!-- Links úteis -->
+                            <div class="col-6 col-md-2">
+                                <h5 class="text-warning">Dúvidas?</h5>
+                                <ul class="list-unstyled">
+                                    <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
+                                </ul>
+                            </div>
+                
+                            <!-- Conta -->
+                            <div class="col-6 col-md-2">
+                                <h5 class="text-warning">Conta</h5>
+                                <ul class="list-unstyled">
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Minha Conta</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Cadastro</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Login</a></li>
+                                </ul>
+                            </div>
+                
+                            <!-- Redes Sociais -->
+                            <div class="col-6 col-md-2">
+                                <h5 class="text-warning">Redes Sociais</h5>
+                                <ul class="list-unstyled">
+                                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                                </ul>
+                            </div>
+                
+                            <!-- Suporte -->
+                            <div class="col-6 col-md-2">
+                                <h5 class="text-warning">Suporte</h5>
+                                <ul class="list-unstyled">
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Fale Conosco</a></li>
+                                    <li><a class="text-white-50 text-decoration-none" href="#">Parcerias e Patrocínios</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                
+                        <!-- Barra inferior -->
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                
 
 
     </div>
