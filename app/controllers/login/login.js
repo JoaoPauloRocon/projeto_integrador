@@ -84,14 +84,14 @@ module.exports.valida_login = function (app, req, res) {
             console.log(result)
             req.session.autorizado = 'usuario';
             req.session.codLogado = result[0].codUsuario; // Definindo o codLogado
-            res.redirect(`/home`);
+            res.redirect(`/`);
             return;
         } else {
             autentificacao.getLoginAdm(campusDeUsuario, function (error, result) {
                 if (result.length != 0) {
                     req.session.autorizado = 'adm';
                     req.session.codLogado = result[0].codAdmin; // Definindo o codLogado
-                    res.redirect('/home');
+                    res.redirect('/');
                     return;
                 }
                 erros.push({ msg: "Usuario ou Senha Incorretos!" });
@@ -106,7 +106,7 @@ module.exports.sair = function (req, res) {
     req.session.destroy(function (err) {
         if (err) {
             console.log('Erro ao tentar destruir a sessão:', err);
-            res.redirect('/home'); 
+            res.redirect('/'); 
         } else {
             res.redirect('/login');
         }
