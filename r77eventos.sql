@@ -1,6 +1,6 @@
 /*
-SQLyog Trial v13.1.8 (64 bit)
-MySQL - 10.4.32-MariaDB : Database - r77eventos
+SQLyog Community v13.2.1 (64 bit)
+MySQL - 10.4.28-MariaDB : Database - r77eventos
 *********************************************************************
 */
 
@@ -58,16 +58,13 @@ CREATE TABLE `eventos` (
   `anoEvento` int(11) DEFAULT NULL,
   `cidadeEvento` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`codEvento`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `eventos` */
 
 insert  into `eventos`(`codEvento`,`tituloEvento`,`descricaoEvento`,`anoEvento`,`cidadeEvento`) values 
-(12,'vfdvfda','vfdavfd',2024,'bgsbfda'),
-(13,'EVENTO 2','vfrefebgre',2024,'Santa teresa'),
-(14,'EVENTO 2','grthtrhgrt',2023,'Santa teresa'),
-(15,'EVENTO 2','vfbfdbdv',2024,'Santa teresa'),
-(16,'1783154','vfdvdfs',2024,'gregfdg');
+(24,'Santa Teresa Inverno Motofest','O Santa Teresa Inverno Motofest é um evento que engloba tanto a população, quanto visitantes de outras cidades, sendo eles motociclistas ou apenas alguém querendo uma parada para curtir com a família, tendo atrações musicais, praça de alimentação, praça temática e expositores variados.',2024,'Santa Teresa'),
+(25,'My Helmet Rock Hotel','O My Helmet Rock Hotel, sediado no SESC Domingos Martins é um evento diferente do comum na cidade, trazendo consigo pessoas de todo lugar, em sua maioria motociclistas, porém não deixando de agradar o público local, que comparece desde a primeira edição em 2023, o evento ganhou mais visibilidade em 2024, contando com expositores tanto de praça temática, quanto montadoras, o evento também dispõe de uma variada praça de alimentação e atrações musicais em todos os dias de realização.',2024,'Domingos Martins');
 
 /*Table structure for table `galeria` */
 
@@ -79,27 +76,29 @@ CREATE TABLE `galeria` (
   `titulo` varchar(200) DEFAULT NULL,
   `idImg` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idImg`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `galeria` */
 
 insert  into `galeria`(`img`,`descricao`,`titulo`,`idImg`) values 
-('1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','sem descrição','EVENTO 1',1),
-('1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','sem descição','EVENTO 2',2),
-('1733168382795-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','',NULL,3),
-('1733168382804-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','',NULL,4),
-('1733169177988-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','',NULL,5),
-('1733169177997-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','',NULL,6),
-('1733169812738-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','',NULL,7),
-('1733169812747-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','',NULL,8),
-('1733171481815-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','',NULL,9),
-('1733171481822-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','',NULL,10),
-('1733171505927-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','',NULL,11),
-('1733171505933-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','',NULL,12),
-('1733171550050-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','',NULL,13),
-('1733171550056-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','',NULL,14),
-('1733171581247-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg','',NULL,15),
-('1733171581253-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','',NULL,16);
+('1733268353079-Inverno Moto Fest (169).jpg','',NULL,63),
+('1733268353373-Inverno Moto Fest (35).jpg','',NULL,64),
+('1733268353475-Inverno Moto Fest (45).jpg','',NULL,65),
+('1733268353588-Inverno Moto Fest (91).jpg','',NULL,66),
+('1733268353783-Inverno Moto Fest (114).jpg','',NULL,67),
+('1733268354012-Inverno Moto Fest (152).jpg','',NULL,68),
+('1733268354187-Inverno Moto Fest (155).jpg','',NULL,69),
+('1733268354349-Inverno Moto Fest (178).jpg','',NULL,70),
+('1733268354615-Inverno Moto Fest (253).jpg','',NULL,71),
+('1733268510093-12c2b63570d6fd8c9d589819db8c1e56..jpg','',NULL,72),
+('1733268510247-00ded95b2b7e8023e1048f0ed411ec91..jpg','',NULL,73),
+('1733268510400-0e03292d88078c36b57afcabbfb3614a..jpg','',NULL,74),
+('1733268510511-0eab191ae47851ef89d9b498c559b15e..jpg','',NULL,75),
+('1733268510580-2d35cb7c9f4a60089ade94c6b192c3fa..jpg','',NULL,76),
+('1733268510630-4d9b6fdd859ecd031d19f36f3a33fc80..jpg','',NULL,77),
+('1733268510698-9c11bf14719953218190b7a8f8775c15..jpg','',NULL,78),
+('1733268510785-25b33e1a603df03b1ceb9670b64d3492..jpg','',NULL,79),
+('1733268510859-111455c88d89e51e1d60d38ab3f6ff9d..jpg','',NULL,80);
 
 /*Table structure for table `imagens_eventos` */
 
@@ -113,21 +112,29 @@ CREATE TABLE `imagens_eventos` (
   PRIMARY KEY (`codImagem`),
   KEY `codEvento` (`codEvento`),
   CONSTRAINT `imagens_eventos_ibfk_1` FOREIGN KEY (`codEvento`) REFERENCES `eventos` (`codEvento`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `imagens_eventos` */
 
 insert  into `imagens_eventos`(`codImagem`,`codEvento`,`imgEvento`,`descricaoImagem`) values 
-(1,12,'1733169812738-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg',''),
-(2,12,'1733169812747-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg',''),
-(3,13,'1733171481815-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg',''),
-(4,13,'1733171481822-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg',''),
-(5,14,'1733171505927-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg',''),
-(6,14,'1733171505933-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg',''),
-(7,15,'1733171550050-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg',''),
-(8,15,'1733171550056-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg',''),
-(9,16,'1733171581247-1727106585867-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-03.jpg',''),
-(10,16,'1733171581253-1727106526370-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg','');
+(57,24,'1733268353079-Inverno Moto Fest (169).jpg',''),
+(58,24,'1733268353373-Inverno Moto Fest (35).jpg',''),
+(59,24,'1733268353475-Inverno Moto Fest (45).jpg',''),
+(60,24,'1733268353588-Inverno Moto Fest (91).jpg',''),
+(61,24,'1733268353783-Inverno Moto Fest (114).jpg',''),
+(62,24,'1733268354012-Inverno Moto Fest (152).jpg',''),
+(63,24,'1733268354187-Inverno Moto Fest (155).jpg',''),
+(64,24,'1733268354349-Inverno Moto Fest (178).jpg',''),
+(65,24,'1733268354615-Inverno Moto Fest (253).jpg',''),
+(66,25,'1733268510093-12c2b63570d6fd8c9d589819db8c1e56..jpg',''),
+(67,25,'1733268510247-00ded95b2b7e8023e1048f0ed411ec91..jpg',''),
+(68,25,'1733268510400-0e03292d88078c36b57afcabbfb3614a..jpg',''),
+(69,25,'1733268510511-0eab191ae47851ef89d9b498c559b15e..jpg',''),
+(70,25,'1733268510580-2d35cb7c9f4a60089ade94c6b192c3fa..jpg',''),
+(71,25,'1733268510630-4d9b6fdd859ecd031d19f36f3a33fc80..jpg',''),
+(72,25,'1733268510698-9c11bf14719953218190b7a8f8775c15..jpg',''),
+(73,25,'1733268510785-25b33e1a603df03b1ceb9670b64d3492..jpg',''),
+(74,25,'1733268510859-111455c88d89e51e1d60d38ab3f6ff9d..jpg','');
 
 /*Table structure for table `usuario` */
 
