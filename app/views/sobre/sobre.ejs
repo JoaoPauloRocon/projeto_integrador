@@ -28,7 +28,6 @@
 
   <style>
 
-    
 footer a {
     transition: color 0.3s ease;
 }
@@ -51,6 +50,25 @@ footer .fab {
     margin-right: 0.5rem; /* Espaçamento antes do texto */
 }
 
+    .nav-link:hover,
+        .navbar-brand img:hover {
+            color: #ffffff !important;
+            /* Altere essa cor conforme necessário */
+            transform: scale(1.1);
+            /* Aumenta o tamanho do link */
+            transition: transform 0.3s ease, color 0.3s ease;
+            /* Transição suave */
+        }
+
+    .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgb(237, 177, 26);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+    
     .nav-link:hover,
         .navbar-brand img:hover {
             color: #ffffff !important;
@@ -147,13 +165,80 @@ footer .fab {
       display: block !important;
     }
 
+    h1.display-4 {
+    margin-bottom: 20px;
+    color: #000000; /* Dourado */
+}
+
+
+    .alice-regular {
+            font-family: "Alice", serif;
+            font-weight: 400;
+            font-style: normal;
+            }
+
+            .roboto-regular {
+            font-family: "Roboto", serif;
+            font-weight: 400;
+            font-style: normal;
+            }
+
+            .roboto-bold {
+            font-family: "Roboto", serif;
+            font-weight: 700;
+            font-style: normal;
+            }
+
+            img {
+    border-radius: 8px;
+}
+.py-5 {
+    padding: 3rem 0;
+}
+.lead {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    
+}
+
+.card-img-top {
+    border-bottom: 1px solid #ddd;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+
+
     body {
-      background-color: rgb(253, 190, 29);
+      background-color: rgb(247, 215, 56);
       font-weight: 630;
       font-style: normal;
       display: flex;
       flex-direction: column;
     }
+
+
+    
   </style>
 
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -196,80 +281,288 @@ footer .fab {
 
   <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
 
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-            <div class="px-4 pt-5 my-5 text-center border-bottom">
-                <h1 class="display-4 fw-bold text-body-emphasis">Sobre a R77 Eventos</h1>
-                <div class="col-lg-6 mx-auto">
-                  <p class="lead mb-4">A R77 Eventos é uma empresa especializada em Moto Turismo. Nosso objetivo é proporcionar experiências únicas para os amantes de motocicletas, explorando belas paisagens e promovendo eventos inesquecíveis.</p>
-                  <p class="lead mb-4">Fundada com paixão pelo motociclismo, nossa equipe é composta por entusiastas que entendem a importância de cada detalhe para garantir segurança, diversão e aventura em cada evento que organizamos.</p>
-                  <p class="lead mb-4">Venha conhecer mais sobre nossos eventos e junte-se a nós para viver momentos emocionantes sobre duas rodas.</p>
-                </div>
-              </div>
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <!-- Seção Principal -->
+    <div class="text-center px-4 pt-5 my-5">
+        <h1 class="display-4 fw-bold text-body-emphasis roboto-regular">Sobre a R77 Eventos</h1>
+        <div class="col-lg-8 mx-auto roboto-bold">
+            <p>
+                A R77 Eventos é uma empresa especializada em Moto Turismo. Nosso objetivo é proporcionar 
+                experiências únicas para os amantes de motocicletas, explorando belas paisagens e promovendo 
+                eventos inesquecíveis.
+            </p>
+            <p>
+                Fundada com paixão pelo motociclismo, nossa equipe é composta por entusiastas que entendem a 
+                importância de cada detalhe para garantir segurança, diversão e aventura em cada evento que 
+                organizamos.
+            </p>
+            <p>
+                Venha conhecer mais sobre nossos eventos e junte-se a nós para viver momentos emocionantes sobre duas rodas.
+            </p>
+        </div>
     </div>
+
+    <!-- Seção com Imagens e Texto Alternado -->
+    <div class="row align-items-center py-5">
+        <!-- Imagem à Esquerda -->
+        <div class="col-md-6">
+            <img src="/sobre/FundoP.jpg" class="img-fluid rounded" alt="Evento Moto Turismo">
+        </div>
+        <!-- Texto à Direita -->
+        <div class="col-md-6">
+            <h2 class="fw-bold">Nossos Eventos</h2>
+            <p>
+                Organizamos eventos que unem não só motociclistas, mas sim qualquer tipo de pessoas de diversas regiões para explorar novos destinos, 
+                compartilhar experiências e criar memórias inesquecíveis.
+            </p>
+        </div>
+    </div>
+
+    <div class="row align-items-center py-5 flex-md-row-reverse">
+        <!-- Imagem à Direita -->
+        <div class="col-md-6">
+            <img src="/sobre/image.png" class="img-fluid rounded" alt="Motociclistas">
+        </div>
+        <!-- Texto à Esquerda -->
+        <div class="col-md-6">
+            <h2 class="fw-bold">Paixão pelo Motociclismo</h2>
+            <p>
+                Mais do que organizar eventos, a R77 Eventos tem como propósito criar uma comunidade onde a 
+                paixão pelo motociclismo une pessoas com diferentes histórias e objetivos.
+            </p>
+        </div>
+    </div>
+
+    <!-- Galeria com Cards -->
+    <div class="py-5 text-center">
+      <h1 class="fw-bold">Pontos Turísticos</h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4 pt-4">
+          <!-- Card 1 -->
+          <div class="col">
+              <div class="card h-100">
+                  <img src="/sobre/Inverno Moto Fest (155).jpg" class="card-img-top img-fluid" alt="Evento 1" style="object-fit: cover; height: 250px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Evento de Moto Turismo</h5>
+                      <p class="card-text">
+                          Reunimos motociclistas de todas as partes para compartilhar a paixão pelas duas rodas.
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col">
+              <div class="card h-100">
+                  <img src="/sobre/1726787271657-Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-10.jpg" class="card-img-top img-fluid" alt="Evento 2" style="object-fit: cover; height: 250px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Paisagens Incríveis</h5>
+                      <p class="card-text">
+                          Explore cenários de tirar o fôlego em nossos passeios e eventos exclusivos.
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col">
+              <div class="card h-100">
+                  <img src="/sobre/FOTOMAIN.jpg" class="card-img-top img-fluid" alt="Evento 3" style="object-fit: cover; height: 250px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Comunidade Unida</h5>
+                      <p class="card-text">
+                          Conecte-se com outros amantes de motocicletas em um ambiente de amizade e diversão.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Título centralizado -->
+<div class="container-fluid py-5 text-center fundoPreto text-light">
+  <h1 class="display-4 fw-bold">Santa Teresa</h1>
+</div>
+
+<!-- Div principal com texto e mapa -->
+<div class="container-fluid py-5 fundoPreto">
+  <div class="container">
+      <div class="row align-items-center">
+          <!-- Texto -->
+          <div class="col-lg-6">
+              <h2 class="display-6 fw-bold">Nossa Localização</h2>
+              <p class="lead mt-3">
+                  A R77 Eventos está estrategicamente localizada para oferecer fácil acesso às melhores rotas de moto turismo. 
+                  Venha nos visitar e descubra porque somos referência em eventos e aventuras sobre duas rodas.
+              </p>
+              <p>
+                  <strong>Endereço:</strong> Rua Exemplo, 123, Centro<br>
+                  <strong>Cidade:</strong> Santa Teresa, Espírito Santo<br>
+                  <strong>Contato:</strong> (27) 99999-9999
+              </p>
+          </div>
+          <!-- Mapa -->
+          <div class="col-lg-6">
+              <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15003.277534054134!2d-40.61021083387481!3d-19.932014630897427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb7824c2dcaf271%3A0x4797914104896232!2sSanta%20Teresa%2C%20ES%2C%2029650-000!5e0!3m2!1spt-BR!2sbr!4v1723053807493!5m2!1spt-BR!2sbr"
+                  width="100%" 
+                  height="350" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy">
+              </iframe>
+          </div>
+      </div>
+  </div>
+</div>
+<br><br>
+
+<!-- Título centralizado -->
+<div class="container-fluid py-5 text-center fundoPreto text-light">
+  <h1 class="display-4 fw-bold">Santa Teresa</h1>
+</div>
+
+<!-- Div principal com texto e mapa -->
+<div class="container-fluid py-5 fundoPreto">
+  <div class="container">
+      <div class="row align-items-center">
+          <!-- Texto -->
+          <div class="col-lg-6">
+              <h2 class="display-6 fw-bold">Nossa Localização</h2>
+              <p class="lead mt-3">
+                  A R77 Eventos está estrategicamente localizada para oferecer fácil acesso às melhores rotas de moto turismo. 
+                  Venha nos visitar e descubra porque somos referência em eventos e aventuras sobre duas rodas.
+              </p>
+              <p>
+                  <strong>Endereço:</strong> Rua Exemplo, 123, Centro<br>
+                  <strong>Cidade:</strong> Santa Teresa, Espírito Santo<br>
+                  <strong>Contato:</strong> (27) 99999-9999
+              </p>
+          </div>
+          <!-- Mapa -->
+          <div class="col-lg-6">
+              <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15003.277534054134!2d-40.61021083387481!3d-19.932014630897427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb7824c2dcaf271%3A0x4797914104896232!2sSanta%20Teresa%2C%20ES%2C%2029650-000!5e0!3m2!1spt-BR!2sbr!4v1723053807493!5m2!1spt-BR!2sbr"
+                  width="100%" 
+                  height="350" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy">
+              </iframe>
+          </div>
+      </div>
+  </div>
+</div>
+
+<br><br>
+<!-- Título centralizado -->
+<div class="container-fluid py-5 text-center fundoPreto text-light">
+  <h1 class="display-4 fw-bold">Santa Teresa</h1>
+</div>
+
+<!-- Div principal com texto e mapa -->
+<div class="container-fluid py-5 fundoPreto">
+  <div class="container">
+      <div class="row align-items-center">
+          <!-- Texto -->
+          <div class="col-lg-6">
+              <h2 class="display-6 fw-bold">Nossa Localização</h2>
+              <p class="lead mt-3">
+                  A R77 Eventos está estrategicamente localizada para oferecer fácil acesso às melhores rotas de moto turismo. 
+                  Venha nos visitar e descubra porque somos referência em eventos e aventuras sobre duas rodas.
+              </p>
+              <p>
+                  <strong>Endereço:</strong> Rua Exemplo, 123, Centro<br>
+                  <strong>Cidade:</strong> Santa Teresa, Espírito Santo<br>
+                  <strong>Contato:</strong> (27) 99999-9999
+              </p>
+          </div>
+          <!-- Mapa -->
+          <div class="col-lg-6">
+              <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15003.277534054134!2d-40.61021083387481!3d-19.932014630897427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb7824c2dcaf271%3A0x4797914104896232!2sSanta%20Teresa%2C%20ES%2C%2029650-000!5e0!3m2!1spt-BR!2sbr!4v1723053807493!5m2!1spt-BR!2sbr"
+                  width="100%" 
+                  height="350" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy">
+              </iframe>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+</div>
 
     <style>
         
     </style>
+  <br><br>
+  <div class="b-example-divider"></div>
 
-<div class="b-example-divider"></div>
 
+  <footer class="bg-black text-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Logotipo e direitos autorais -->
+            <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
+                <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
+                <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
+            </div>
 
-<footer class="bg-black text-light py-5">
-  <div class="container">
-      <div class="row">
-          <!-- Logotipo e direitos autorais -->
-          <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
-              <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
-              <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
-          </div>
+            <!-- Links úteis -->
+            <div class="col-6 col-md-2">
+                <h5 class="text-warning">Dúvidas?</h5>
+                <ul class="list-unstyled">
+                    <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
+                    <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
+                    <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
+                    <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
+                </ul>
+            </div>
 
-          <!-- Links úteis -->
-          <div class="col-6 col-md-2">
-              <h5 class="text-warning">Dúvidas?</h5>
-              <ul class="list-unstyled">
-                  <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
-                  <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
-                  <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
-                  <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
-              </ul>
-          </div>
+            <!-- Conta -->
+            <div class="col-6 col-md-2">
+                <h5 class="text-warning">Conta</h5>
+                <ul class="list-unstyled">
+                    <li><a class="text-white-50 text-decoration-none" href="#">Minha Conta</a></li>
+                    <li><a class="text-white-50 text-decoration-none" href="#">Cadastro</a></li>
+                    <li><a class="text-white-50 text-decoration-none" href="#">Login</a></li>
+                </ul>
+            </div>
 
-          <!-- Conta -->
-          <div class="col-6 col-md-2">
-              <h5 class="text-warning">Conta</h5>
-              <ul class="list-unstyled">
-                  <li><a class="text-white-50 text-decoration-none" href="#">Minha Conta</a></li>
-                  <li><a class="text-white-50 text-decoration-none" href="#">Cadastro</a></li>
-                  <li><a class="text-white-50 text-decoration-none" href="#">Login</a></li>
-              </ul>
-          </div>
+            <!-- Redes Sociais -->
+            <div class="col-6 col-md-2">
+                <h5 class="text-warning">Redes Sociais</h5>
+                <ul class="list-unstyled">
+                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                </ul>
+            </div>
 
-          <!-- Redes Sociais -->
-          <div class="col-6 col-md-2">
-              <h5 class="text-warning">Redes Sociais</h5>
-              <ul class="list-unstyled">
-                  <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                  <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-              </ul>
-          </div>
+            <!-- Suporte -->
+            <div class="col-6 col-md-2">
+                <h5 class="text-warning">Suporte</h5>
+                <ul class="list-unstyled">
+                    <li><a class="text-white-50 text-decoration-none" href="#">Fale Conosco</a></li>
+                    <li><a class="text-white-50 text-decoration-none" href="#">Parcerias e Patrocínios</a></li>
+                </ul>
+            </div>
+        </div>
 
-          <!-- Suporte -->
-          <div class="col-6 col-md-2">
-              <h5 class="text-warning">Suporte</h5>
-              <ul class="list-unstyled">
-                  <li><a class="text-white-50 text-decoration-none" href="#">Fale Conosco</a></li>
-                  <li><a class="text-white-50 text-decoration-none" href="#">Parcerias e Patrocínios</a></li>
-              </ul>
-          </div>
-      </div>
-
-      <!-- Barra inferior -->
-      <div class="row mt-4">
-          <div class="col-12 text-center">
-              <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
-          </div>
-      </div>
-  </div>
+        <!-- Barra inferior -->
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
+            </div>
+        </div>
+    </div>
 </footer>
 
 
