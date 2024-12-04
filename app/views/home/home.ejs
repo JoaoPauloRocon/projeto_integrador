@@ -24,9 +24,8 @@
     <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 </head>
 
-<body>
+<body class="roboto-regular">
     <style>
-        
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -34,6 +33,7 @@
             -moz-user-select: none;
             user-select: none;
         }
+
 
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
@@ -44,7 +44,16 @@
         .b-example-divider {
             width: 100%;
             height: 3rem;
-            background-color: rgb(237, 177, 26);
+            background-color: rgb(247, 215, 56);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-divider-gray {
+            width: 100%;
+            height: 3rem;
+            background-color: rgb(120, 120, 120);
             border: solid rgba(0, 0, 0, .15);
             border-width: 1px 0;
             box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
@@ -128,26 +137,54 @@
         .navbar-brand img {
             transition: transform 0.3s ease;
         }
-    
+
 
         .navbar-nav .nav-item:nth-child(4) img {
             transition: transform 0.2s ease;
         }
 
+        .linkSobre {
+            text-decoration: none;
+            color: rgb(61, 61, 61);
+            font-weight: bold;
+        }
+
+
+        .linkSobre:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        .alice-regular {
+            font-family: "Alice", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .roboto-regular {
+            font-family: "Roboto", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .roboto-bold {
+            font-family: "Roboto", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
         body {
-            background-color: rgb(253, 190, 29);
+            background-color: rgb(247, 215, 56);
             font-weight: 630;
             font-style: normal;
             display: flex;
             flex-direction: column;
         }
 
-        .textoConteudo{
+        .textoConteudo {
             font-size: 17px;
             color: black;
 
         }
-
     </style>
 
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -206,7 +243,7 @@
                         <A href="/sobre" class="linkInicial">
                             <h5>Sobre a R77</h5>
                         </A>
-                        <p>Somos uma empresa focada no Moto Turismo. Conheça mais Sobre nós.</p>
+                        <p class="roboto-bold">Somos uma empresa focada no Moto Turismo. Conheça mais Sobre nós.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
@@ -214,7 +251,7 @@
                         class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <p class="roboto-bold">Some representative placeholder content for the second slide.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -222,7 +259,7 @@
                         alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <p class="roboto-bold">Some representative placeholder content for the third slide.</p>
                     </div>
                 </div>
             </div>
@@ -238,24 +275,69 @@
             </button>
         </div>
         </div>
-        <div class="px-4 pt-5 my-5 text-center border-bottom">
+
+        <div class="px-4 pt-5 my-2 text-center">
             <h1 class="display-4 fw-bold text-body-emphasis">Apresentação</h1>
             <div class="col-lg-6 mx-auto">
                 <br>
-                <p class="textoConteudo">A R77 Eventos é uma empresa que está à quase 2 anos no mercado tendo como seu primeiro evento oficial a 1ª edição do My Helmet Rock Hotel em Janeiro de 2023, com seus fundadores sendo: Robert Lopes (mais conhecido como Robinho) e Ediane Lopes.<br><br>
-                    Anterior a fundação da R77 Eventos, a marca era Robinho Bode, porém para dar uma identidade própria a empresa, foi acordada a escolha de novo nome e logo, nascendo assim a marca R77 Eventos "Entretenimento que surpreende com qualidade."</p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                </div>
+                <p class="textoConteudo roboto-bold">
+                    A R77 Eventos é uma empresa que está à quase 2 anos no mercado tendo como seu primeiro evento
+                    oficial a 1ª edição do My Helmet Rock Hotel em Janeiro de 2023, com seus fundadores sendo: Robert
+                    Lopes (mais conhecido como Robinho) e Ediane Lopes.<br><br>
+                    Anterior a fundação da R77 Eventos, a marca era Robinho Bode, porém para dar uma identidade própria
+                    a empresa, foi acordada a escolha de novo nome e logo, nascendo assim a marca R77 Eventos, com o
+                    slogan oficial sendo<br>
+                    "Entretenimento que surpreende com qualidade."
+                    <br><br>Para saber mais sobre a R77 Eventos conheça a nossa página: <a class="linkSobre"
+                        href="/sobre"> Sobre</a>
+                </p>
             </div>
-            <div class="overflow-hidden" style="max-height: 30vh;">
-                <div class="container px-5">
-                    <img src="/home/FundoP.jpg" class="img-fluid border rounded-3" alt="Example image" loading="lazy">
+        </div>
 
+        <div class="fundoPreto">
+            <div class="container col-xxl-8 px-4 py-2">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-2">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img src="/home/Inverno Motofest Santa Teresa - Renata Roque - Foto Pista-01.jpg"
+                            class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500"
+                            loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold lh-1 mb-3">O que é Motoclube?</h1><br>
+                        <p class="textoConteudo roboto-bold">
+                            Um moto clube é uma entidade sem fins lucrativos, que pode ser regida por um estatuto,
+                            dependendo do nível de formalidade de cada clube, seus integrantes respeitam uma hierarquia
+                            com uma diretoria instituída que varia conforme regras internas de cada clube. E dentro
+                            dessa entidade, os integrantes se comprometem a manter valores de respeito mútuo e espírito
+                            de solidariedade.
+                        </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="b-example-divider"></div>
+        <div class="fundoPreto">
+            <div class="container col-xxl-8 px-4 py-2">
+                <div class="row align-items-center g-5 py-2">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img src="/home/Inverno Moto Fest (14).jpg" class="d-block mx-lg-auto img-fluid"
+                            alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold lh-1 mb-3">Sobre o Mototurismo</h1><br>
+                        <p class="textoConteudo roboto-bold">
+                            Mototurismo é um conceito de viagem cujo meio de transporte é uma moto, ou seja, quem
+                            realiza esses passeios e viagens é chamado de motociclista, que não necessariamente precisa
+                            participar de um motoclube. A R77 Eventos realiza eventos onde o mototurismo é muito
+                            presente.
+                        </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="fundoPreto">
             <div class="container col-xxl-8 px-4 py-5">
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -265,14 +347,11 @@
                             loading="lazy">
                     </div>
                     <div class="col-lg-6">
-                        <h1 class="display-5 fw-bold lh-1 mb-3">Sobre os Eventos</h1><br>
-                        <p class="textoConteudo">Estes eventos tem produzido resultados significativos, o
-                            moto turista gasta em média R$ 400,00 por dia sendo a programação dos eventos de 20 horas em
-                            02 dias; a taxa de ocupação atinge sempre uma das maiores médias, como exemplo de evento
-                            particular (sem investimento público) podemos listar o My Helmet Rock Hotel que acontece em
-                            janeiro na
-                            unidade Domingos Martins do Sesc e ocupa 100% dos 308 quartos com mais de 700 pessoas
-                            somente na unidade, sendo a abrangência para diversas pousadas e hospedagens como Airbnb.
+                        <h1 class="display-5 fw-bold lh-1 mb-3">Preciso ser de um Motoclube para Participar dos Eventos?
+                        </h1><br>
+                        <p class="textoConteudo roboto-bold">Para participar de eventos e encontros de motociclistas não
+                            é necessário ser membro de um motoclube ou ter uma moto, basta apenas ter vontade de curtir
+                            um bom rock e comida boa. Aproveite a nova experiência!
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         </div>
                     </div>
@@ -329,142 +408,120 @@
             }
 
             footer a {
-    transition: color 0.3s ease;
-}
+                transition: color 0.3s ease;
+            }
 
-footer a:hover {
-    color: #ffffff!important; /* Amarelo para hover */
-    text-decoration: none; /* Remove sublinhado no hover */
-}
+            footer a:hover {
+                color: #ffffff !important;
+                /* Amarelo para hover */
+                text-decoration: none;
+                /* Remove sublinhado no hover */
+            }
 
-footer h5 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
+            footer h5 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
 
-footer img {
-    filter: brightness(0) invert(1); /* Deixa a logo branca */
-}
+            footer img {
+                filter: brightness(0) invert(1);
+                /* Deixa a logo branca */
+            }
 
-footer .fab {
-    margin-right: 0.5rem; /* Espaçamento antes do texto */
-}
-
-</style>
+            footer .fab {
+                margin-right: 0.5rem;
+                /* Espaçamento antes do texto */
+            }
+        </style>
 
         </head>
 
         <body>
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-6 col-md-4">
-                        <div class="card h-100">
-                            <img src="arvi.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                            </div>
+
+
+            <div class="b-example-divider"></div>
+
+            <div style="background-color: rgb(189, 189, 189);">
+
+                <div class="px-4 pt-5 my-2 text-center">
+                    <h1 class="display-4 fw-bold text-body-emphasis">Fale Conosco</h1>
+                    <div class="col-lg-6 mx-auto">
+                        <br>
+                        <p class="textoConteudo roboto-bold">
+                            Para entrar em contato conosco utilize um dos meios de contato que possuímos abaixo. Em caso
+                            de parceria e patrocínios, utilize o email como principal contato:<br><br>
+                            E-mail: r77eventos@gmail.com <br>
+                            Contato: @r77eventos<br>
+                            Cel: 27 998771977<br>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="b-example-divider-gray"></div>
+            </div>
+
+            <footer class="bg-black text-light py-5">
+                <div class="container">
+                    <div class="row">
+                        <!-- Logotipo e direitos autorais -->
+                        <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
+                            <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
+                            <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
+                        </div>
+
+                        <!-- Links úteis -->
+                        <div class="col-6 col-md-2">
+                            <h5 class="text-warning">Dúvidas?</h5>
+                            <ul class="list-unstyled">
+                                <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
+                                <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
+                                <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
+                                <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Conta -->
+                        <div class="col-6 col-md-2">
+                            <h5 class="text-warning">Conta</h5>
+                            <ul class="list-unstyled">
+                                <li><a class="text-white-50 text-decoration-none" href="/conta">Minha Conta</a></li>
+                                <li><a class="text-white-50 text-decoration-none" href="/conta">Cadastro</a></li>
+                                <li><a class="text-white-50 text-decoration-none" href="/conta">Login</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Redes Sociais -->
+                        <div class="col-6 col-md-2">
+                            <h5 class="text-warning">Redes Sociais</h5>
+                            <ul class="list-unstyled">
+                                <li><a class="text-white-50 text-decoration-none" href="#"><i
+                                            class="fab fa-instagram"></i> Instagram</a></li>
+                                <li><a class="text-white-50 text-decoration-none" href="#"><i
+                                            class="fab fa-facebook"></i> Facebook</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Suporte -->
+                        <div class="col-6 col-md-2">
+                            <h5 class="text-warning">Suporte</h5>
+                            <ul class="list-unstyled">
+                                <li><a class="text-white-50 text-decoration-none" href="/fale">Fale Conosco</a></li>
+                                <li><a class="text-white-50 text-decoration-none" href="">Parcerias e Patrocínios</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="col-6 col-md-4">
-                        <div class="card h-100">
-                            <img src="" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This card has supporting text below as a natural lead-in to
-                                    additional content.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-4">
-                        <div class="card h-100">
-                            <img src="agua na folha2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                            </div>
-
+                    <!-- Barra inferior -->
+                    <div class="row mt-4">
+                        <div class="col-12 text-center">
+                            <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
                         </div>
                     </div>
                 </div>
-                <br><br>
-            </div>
+            </footer>
 
-            <div style="background-color:rgb(78, 78, 78);">
-
-                <div class="b-example-divider"></div>
-
-                <footer class="bg-black text-light py-5">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Logotipo e direitos autorais -->
-                            <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
-                                <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
-                                <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
-                            </div>
-                
-                            <!-- Links úteis -->
-                            <div class="col-6 col-md-2">
-                                <h5 class="text-warning">Dúvidas?</h5>
-                                <ul class="list-unstyled">
-                                    <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
-                                </ul>
-                            </div>
-                
-                            <!-- Conta -->
-                            <div class="col-6 col-md-2">
-                                <h5 class="text-warning">Conta</h5>
-                                <ul class="list-unstyled">
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Minha Conta</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Cadastro</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Login</a></li>
-                                </ul>
-                            </div>
-                
-                            <!-- Redes Sociais -->
-                            <div class="col-6 col-md-2">
-                                <h5 class="text-warning">Redes Sociais</h5>
-                                <ul class="list-unstyled">
-                                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                                </ul>
-                            </div>
-                
-                            <!-- Suporte -->
-                            <div class="col-6 col-md-2">
-                                <h5 class="text-warning">Suporte</h5>
-                                <ul class="list-unstyled">
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Fale Conosco</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Parcerias e Patrocínios</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                
-                        <!-- Barra inferior -->
-                        <div class="row mt-4">
-                            <div class="col-12 text-center">
-                                <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                
 
 
             </div> <!--Fechando a div que da cor do background do site-->
