@@ -1,244 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastre-se</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/5bece6c669.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
     <script src="progressbar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 </head>
+
 <body>
-  <body>
-    <style>
-        body {
-            background-color: rgb(253, 190, 29);
-            font-weight: 630;
-            font-style: normal;
-        }
 
-        footer a {
-    transition: color 0.3s ease;
-}
+    <body>
+        <style>
+            body {
+                background-color: rgb(253, 190, 29);
+                font-weight: 630;
+                font-style: normal;
+            }
 
-footer a:hover {
-    color: #ffffff!important; /* Amarelo para hover */
-    text-decoration: none; /* Remove sublinhado no hover */
-}
+            footer a {
+                transition: color 0.3s ease;
+            }
 
-footer h5 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
+            footer a:hover {
+                color: #ffffff !important;
+                /* Amarelo para hover */
+                text-decoration: none;
+                /* Remove sublinhado no hover */
+            }
 
-footer img {
-    filter: brightness(0) invert(1); /* Deixa a logo branca */
-}
+            footer h5 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
 
-footer .fab {
-    margin-right: 0.5rem; /* Espaçamento antes do texto */
-}
+            footer img {
+                filter: brightness(0) invert(1);
+                /* Deixa a logo branca */
+            }
 
-        .nav-link:hover,
-        .navbar-brand img:hover {
-            color: #ffffff !important;
-            /* Altere essa cor conforme necessário */
-            transform: scale(1.1);
-            /* Aumenta o tamanho do link */
-            transition: transform 0.3s ease, color 0.3s ease;
-            /* Transição suave */
-        }
+            footer .fab {
+                margin-right: 0.5rem;
+                /* Espaçamento antes do texto */
+            }
 
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgb(237, 177, 26);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
+            .nav-link:hover,
+            .navbar-brand img:hover {
+                color: #ffffff !important;
+                /* Altere essa cor conforme necessário */
+                transform: scale(1.1);
+                /* Aumenta o tamanho do link */
+                transition: transform 0.3s ease, color 0.3s ease;
+                /* Transição suave */
+            }
 
-        .form-container {
-            max-width: 500px; /* Diminuindo o tamanho */
-            width: 100%;
-        }
+            .b-example-divider {
+                width: 100%;
+                height: 3rem;
+                background-color: rgb(237, 177, 26);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 1px 0;
+                box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+            }
 
-        .form-container form {
-            padding: 1.5rem; /* Diminuir espaçamento interno */
-            border-radius: 0.5rem;
-            background: #f8f9fa;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+            .form-container {
+                max-width: 500px;
+                /* Diminuindo o tamanho */
+                width: 100%;
+            }
 
-        .form-container img {
-            display: block;
-            margin: 0 auto 20px; /* Centraliza e adiciona margem inferior */
-            max-width: 100px; /* Aumenta o tamanho da imagem */
-        }
+            .form-container form {
+                padding: 1.5rem;
+                /* Diminuir espaçamento interno */
+                border-radius: 0.5rem;
+                background: #f8f9fa;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
 
-        .form-container a {
-            font-size: 1.1rem; /* Aumenta o tamanho do texto do link */
-            color: #007bff; /* Cor padrão do Bootstrap */
-        }
+            .form-container img {
+                display: block;
+                margin: 0 auto 20px;
+                /* Centraliza e adiciona margem inferior */
+                max-width: 100px;
+                /* Aumenta o tamanho da imagem */
+            }
 
-        .form-container a:hover {
-            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
-        }
+            .form-container a {
+                font-size: 1.1rem;
+                /* Aumenta o tamanho do texto do link */
+                color: #007bff;
+                /* Cor padrão do Bootstrap */
+            }
 
-        .error {
-            color: red;
-            font-weight: bold;
-        }
+            .form-container a:hover {
+                text-decoration: underline;
+                /* Adiciona sublinhado ao passar o mouse */
+            }
 
-        .error-messages {
-            margin-top: 10px;
-        }
-        
-        .textoBaixo{
-            font-size: 12px;
-        }
+            .error {
+                color: red;
+                font-weight: bold;
+            }
 
-    </style>
+            .error-messages {
+                margin-top: 10px;
+            }
+
+            .textoBaixo {
+                font-size: 12px;
+            }
+        </style>
 
 
-    <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
-    <div class="container col-xl-20 col-xxl-8 px-4 py-5">
+        <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
+            <div class="container col-xl-20 col-xxl-8 px-4 py-5">
 
-                    <div class="col-md-10 mx-auto col-lg-6">
+                <div class="col-md-10 mx-auto col-lg-6">
                     <div class="form-container">
 
-                      <form action="/cadastro_usuarios" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
-              
-                          <img src="/login/LogoR77eventos.png" alt="Logo R77 Eventos">
-              
-                          <h1 class="h4 mb-4 text-center">Cadastre-se</h1>
-                          <div class="form-floating mb-3">
-                              <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail">
-                              <label for="email">Email</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                              <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
-                              <label for="senha">Senha</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                              <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu primeiro nome">
-                              <label for="nome">Nome</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                              <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
-                                  placeholder="Digite sua data de nascimento">
-                              <label for="dataNascimento">Data de Nascimento</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
-                              <label for="cpf">CPF</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                              <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite seu telefone">
-                              <label for="telefone">Telefone</label>
-                          </div>
-                          <div class="checkbox mb-3">
-                              <label>
-                                  <input type="checkbox" value="remember-me"> Lembrar minha senha
-                              </label>
-                          </div>
-                       
+                        <form action="/cadastro_usuarios" method="post"
+                            class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
 
+                            <img src="/login/LogoR77eventos.png" alt="Logo R77 Eventos">
 
-                    <% if (typeof validacao !== 'undefined' && validacao.length > 0) { %>
-                        <div class="error-messages">
-                            <% validacao.forEach(function(error) { %>
-                                <p class="error text-danger"><%= error.msg %></p>
-                            <% }) %>
-                        </div>
-                    <% } %>
-
-                    <a href="/login">Entrar</a>
-                    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Continuar</button>
-                    <hr class="my-4">
-                    <small class="text-body-secondary d-block text-center textoBaixo">
-                        Ao se cadastrar, você poderá logar no site para aproveitar os benefícios da R77 EVENTOS.
-                    </small>
-
-                </form>
-            </div>
-        </div>    
-    </div>
- </div>
-
-
-    <div class="b-example-divider"></div>
-
-
-
-                <footer class="bg-black text-light py-5">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Logotipo e direitos autorais -->
-                            <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
-                                <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
-                                <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
+                            <h1 class="h4 mb-4 text-center">Cadastre-se</h1>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Digite seu e-mail">
+                                <label for="email">Email</label>
                             </div>
-                
-                            <!-- Links úteis -->
-                            <div class="col-6 col-md-2">
-                                <h5 class="text-warning">Dúvidas?</h5>
-                                <ul class="list-unstyled">
-                                    <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
-                                </ul>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="senha" name="senha"
+                                    placeholder="Digite sua senha">
+                                <label for="senha">Senha</label>
                             </div>
-                
-                            <!-- Conta -->
-                            <div class="col-6 col-md-2">
-                                <h5 class="text-warning">Conta</h5>
-                                <ul class="list-unstyled">
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Minha Conta</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Cadastro</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Login</a></li>
-                                </ul>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nome" name="nome"
+                                    placeholder="Digite seu primeiro nome">
+                                <label for="nome">Nome</label>
                             </div>
-                
-                            <!-- Redes Sociais -->
-                            <div class="col-6 col-md-2">
-                                <h5 class="text-warning">Redes Sociais</h5>
-                                <ul class="list-unstyled">
-                                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                                </ul>
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
+                                    placeholder="Digite sua data de nascimento">
+                                <label for="dataNascimento">Data de Nascimento</label>
                             </div>
-                
-                            <!-- Suporte -->
-                            <div class="col-6 col-md-2">
-                                <h5 class="text-warning">Suporte</h5>
-                                <ul class="list-unstyled">
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Fale Conosco</a></li>
-                                    <li><a class="text-white-50 text-decoration-none" href="#">Parcerias e Patrocínios</a></li>
-                                </ul>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="cpf" name="cpf"
+                                    placeholder="Digite seu CPF">
+                                <label for="cpf">CPF</label>
                             </div>
-                        </div>
-                
-                        <!-- Barra inferior -->
-                        <div class="row mt-4">
-                            <div class="col-12 text-center">
-                                <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="telefone" name="telefone"
+                                    placeholder="Digite seu telefone">
+                                <label for="telefone">Telefone</label>
                             </div>
-                        </div>
+                            <div class="checkbox mb-3">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Lembrar minha senha
+                                </label>
+                            </div>
+
+
+
+                            <% if (typeof validacao !=='undefined' && validacao.length> 0) { %>
+                                <div class="error-messages">
+                                    <% validacao.forEach(function(error) { %>
+                                        <p class="error text-danger">
+                                            <%= error.msg %>
+                                        </p>
+                                        <% }) %>
+                                </div>
+                                <% } %>
+
+                                    <a href="/login">Entrar</a>
+                                    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Continuar</button>
+                                    <hr class="my-4">
+                                    <small class="text-body-secondary d-block text-center textoBaixo">
+                                        Ao se cadastrar, você poderá logar no site para aproveitar os benefícios da R77
+                                        EVENTOS.
+                                    </small>
+
+                        </form>
                     </div>
-                </footer>
-                
+                </div>
+            </div>
+            </div>
 
 
-    </div>
-</body>
+            <div class="b-example-divider"></div>
+
+
+
+            <%- include("../partes/footer") %>
+
+
+
+            </div>
+    </body>
+
 </html>

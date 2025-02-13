@@ -66,38 +66,79 @@
 </nav>
 
 <style>
-    .navbar-nav li.nav-item a.nav-link {
-        font-size: 20px;
+    /* Ajustes gerais para o menu */
+.navbar-nav li.nav-item a.nav-link {
+    font-size: 18px;
+    padding: 10px 15px;
+}
+
+/* Cor e estilo do dropdown */
+.dropdown-menu {
+    background-color: #343a40;
+    border: none;
+}
+
+/* Cor do item do dropdown */
+.dropdown-item {
+    color: #FDBE1D;
+}
+
+.dropdown-item:hover {
+    background-color: #495057;
+}
+
+/* Ajustes para tornar o menu mais responsivo */
+@media (max-width: 991px) {
+    .navbar-toggler {
+        border: none;
+        outline: none;
     }
 
-    .dropdown-menu {
-        background-color: #343a40;
-        /* Cor de fundo do menu suspenso */
+    .navbar-nav {
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
     }
 
-    .dropdown-item {
-        color: #FDBE1D;
-        /* Cor do texto do item do menu suspenso */
+    .nav-item {
+        width: 100%;
+        text-align: left;
     }
 
-    .dropdown-item:hover {
-        background-color: #495057;
-        /* Cor de fundo ao passar o mouse */
-    }
-
-    .nav-item.dropdown:hover .dropdown-menu {
+    .nav-link {
+        padding: 12px 15px;
+        font-size: 16px;
         display: block;
+        width: 100%;
     }
 
-    .dropdown-menu {
-        display: none;
+    .offcanvas {
+        width: 75%; /* Largura do menu lateral */
     }
 
-    @media (min-width: 768px) {
-        .centro {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .offcanvas-body {
+        padding: 20px;
     }
+
+    .navbar-brand img {
+        max-width: 70px;
+    }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 576px) {
+    .nav-link {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .navbar-brand img {
+        max-width: 60px;
+    }
+
+    .offcanvas {
+        width: 90%;
+    }
+}
+
 </style>
