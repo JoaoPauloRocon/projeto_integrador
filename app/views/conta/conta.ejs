@@ -36,28 +36,32 @@
         }
 
         footer a {
-    transition: color 0.3s ease;
-}
+            transition: color 0.3s ease;
+        }
 
-footer a:hover {
-    color: #ffffff!important; /* Amarelo para hover */
-    text-decoration: none; /* Remove sublinhado no hover */
-}
+        footer a:hover {
+            color: #ffffff !important;
+            /* Amarelo para hover */
+            text-decoration: none;
+            /* Remove sublinhado no hover */
+        }
 
-footer h5 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
+        footer h5 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
 
-footer img {
-    filter: brightness(0) invert(1); /* Deixa a logo branca */
-}
+        footer img {
+            filter: brightness(0) invert(1);
+            /* Deixa a logo branca */
+        }
 
-footer .fab {
-    margin-right: 0.5rem; /* Espaçamento antes do texto */
-}
+        footer .fab {
+            margin-right: 0.5rem;
+            /* Espaçamento antes do texto */
+        }
 
-    .nav-link:hover,
+        .nav-link:hover,
         .navbar-brand img:hover {
             color: #ffffff !important;
             /* Altere essa cor conforme necessário */
@@ -67,14 +71,14 @@ footer .fab {
             /* Transição suave */
         }
 
-    .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgb(63, 63, 63)!important;
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgb(63, 63, 63) !important;
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
 
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
@@ -193,7 +197,7 @@ footer .fab {
                         Olá, ADMIN!
                         <% } else if (usuario && usuario.length> 0) { %>
                             Olá, <%= usuario[0].nome %>!
-                        <% }%>
+                                <% }%>
                 </h1>
                 <div class="col-lg-6 mx-auto">
                     <p class="fs-5 mb-4 text-light">Veja as informações da sua conta aqui. Para editar seus dados ou
@@ -206,70 +210,14 @@ footer .fab {
                 </div>
             </div>
         </div>
-     
+
         <div class="b-example-divider"></div>
 
 
-        <footer class="bg-black text-light py-5">
-          <div class="container">
-              <div class="row">
-                  <!-- Logotipo e direitos autorais -->
-                  <div class="col-12 col-md-3 mb-4 mb-md-0 text-center text-md-start">
-                      <img src="/login/LogoR77eventos.png" alt="R77 Eventos" class="mb-3" style="width: 150px;">
-                      <p>&copy; 2023–2024 R77 Eventos<br>Todos os direitos reservados.</p>
-                  </div>
-      
-                  <!-- Links úteis -->
-                  <div class="col-6 col-md-2">
-                      <h5 class="text-warning">Dúvidas?</h5>
-                      <ul class="list-unstyled">
-                          <li><a class="text-white-50 text-decoration-none" href="#">O que é a R77?</a></li>
-                          <li><a class="text-white-50 text-decoration-none" href="#">O que é Motoclube?</a></li>
-                          <li><a class="text-white-50 text-decoration-none" href="#">Eventos e Motoclube</a></li>
-                          <li><a class="text-white-50 text-decoration-none" href="#">Como são os Eventos?</a></li>
-                      </ul>
-                  </div>
-      
-                  <!-- Conta -->
-                  <div class="col-6 col-md-2">
-                      <h5 class="text-warning">Conta</h5>
-                      <ul class="list-unstyled">
-                          <li><a class="text-white-50 text-decoration-none" href="#">Minha Conta</a></li>
-                          <li><a class="text-white-50 text-decoration-none" href="#">Cadastro</a></li>
-                          <li><a class="text-white-50 text-decoration-none" href="#">Login</a></li>
-                      </ul>
-                  </div>
-      
-                  <!-- Redes Sociais -->
-                  <div class="col-6 col-md-2">
-                      <h5 class="text-warning">Redes Sociais</h5>
-                      <ul class="list-unstyled">
-                          <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                          <li><a class="text-white-50 text-decoration-none" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                      </ul>
-                  </div>
-      
-                  <!-- Suporte -->
-                  <div class="col-6 col-md-2">
-                      <h5 class="text-warning">Suporte</h5>
-                      <ul class="list-unstyled">
-                          <li><a class="text-white-50 text-decoration-none" href="#">Fale Conosco</a></li>
-                          <li><a class="text-white-50 text-decoration-none" href="#">Parcerias e Patrocínios</a></li>
-                      </ul>
-                  </div>
-              </div>
-      
-              <!-- Barra inferior -->
-              <div class="row mt-4">
-                  <div class="col-12 text-center">
-                      <p class="text-white-50 mb-0">Entretenimento que surpreende com qualidade | R77 Eventos</p>
-                  </div>
-              </div>
-          </div>
-      </footer>
-    
+        <%- include("../partes/footer") %>
 
-        </div> <!--Fechando a div que da cor do background do site-->
+
+            </div> <!--Fechando a div que da cor do background do site-->
 
 
 </body>
