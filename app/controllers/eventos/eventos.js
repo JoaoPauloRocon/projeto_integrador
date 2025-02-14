@@ -1,8 +1,10 @@
-module.exports.renderiza_eventos = function(app, req, res) {
+module.exports.renderiza_eventos = function (app, req, res) {
     var connection = app.config.dbConnection();
     var eventosDAO = new app.app.models.eventosDAO(connection);
 
-    eventosDAO.getEventos(function(error, result) {
+    eventosDAO.getEventos(function (error, result) {
+
+        console.log(result);
         if (error) {
             console.error('Erro ao buscar os eventos:', error);
             res.status(500).send('Erro ao buscar os eventos');
@@ -13,8 +15,13 @@ module.exports.renderiza_eventos = function(app, req, res) {
                         codEvento: evento.codEvento,
                         tituloEvento: evento.tituloEvento,
                         descricaoEvento: evento.descricaoEvento,
-                        anoEvento: evento.anoEvento,
-                        cidadeEvento: evento.cidadeEvento,
+                        dataEvento: evento.dataEvento,
+                        cidadeEvento: evento.cidade,
+                        ruaEvento: evento.rua,
+                        bairroEvento: evento.bairro,
+                        numeroEvento: evento.numero,
+                        cepEvento: evento.cep,
+                        estadoEvento: evento.estado,
                         imagens: []
                     };
                 }
@@ -33,12 +40,12 @@ module.exports.renderiza_eventos = function(app, req, res) {
     });
 };
 
-module.exports.detalha_evento = function(app, req, res) {
+module.exports.detalha_evento = function (app, req, res) {
     var connection = app.config.dbConnection();
     var eventosDAO = new app.app.models.eventosDAO(connection);
     var id = req.params.id;
 
-    eventosDAO.getEventoById(id, function(error, result) {
+    eventosDAO.getEventoById(id, function (error, result) {
         if (error) {
             console.error('Erro ao buscar o evento:', error);
             res.status(500).send('Erro ao buscar o evento');
@@ -47,8 +54,13 @@ module.exports.detalha_evento = function(app, req, res) {
                 codEvento: result[0].codEvento,
                 tituloEvento: result[0].tituloEvento,
                 descricaoEvento: result[0].descricaoEvento,
-                anoEvento: result[0].anoEvento,
-                cidadeEvento: result[0].cidadeEvento,
+                dataEvento: result[0].dataEvento,
+                cidadeEvento: result[0].cidade,
+                ruaEvento: result[0].rua,
+                numeroEvento: result[0].numero,
+                bairroEvento: result[0].bairro,
+                cepEvento: result[0].cep,
+                estadoEvento: result[0].estado,
                 imagens: result.map(r => r.imgEvento).filter(img => img)
             } : null;
 
@@ -62,11 +74,11 @@ module.exports.detalha_evento = function(app, req, res) {
 };
 
 
-module.exports.renderiza_add_evento = function(app, req, res) {
+module.exports.renderiza_add_evento = function (app, req, res) {
     console.log('Session Data:', req.session);
     console.log('flagAdmin:', req.session.autorizado);
     console.log('codLogado:', req.session.codLogado);
-   
+
     res.render('eventos/add_evento', {
         validacao: [], // Inicializa como array vazio
         evento: {},   // Adiciona evento vazio para prevenir erros de template
@@ -83,8 +95,12 @@ module.exports.add_evento = function (app, req, res) {
     // Validação do evento
     req.assert('titulo', 'Título é obrigatório').notEmpty();
     req.assert('descricao', 'Descrição é obrigatória').notEmpty();
-    req.assert('ano', 'Ano é obrigatório').notEmpty();
-    req.assert('cidade', 'Cidade é obrigatória').notEmpty();
+    req.assert('data', 'Data é obrigatório').notEmpty();
+    req.assert('cidade_endereco', 'Cidade é obrigatória').notEmpty();
+    req.assert('numero', 'Número é obrigatória').notEmpty();
+    req.assert('rua', 'Rua é obrigatória').notEmpty();
+    req.assert('bairro', 'Bairro é obrigatório').notEmpty();
+    req.assert('cep', 'CEP é obrigatório').notEmpty();
 
     var erros = req.validationErrors();
 
@@ -101,7 +117,8 @@ module.exports.add_evento = function (app, req, res) {
     var connection = app.config.dbConnection();
     var eventosDAO = new app.app.models.eventosDAO(connection);
 
-    // Adicionar o evento
+
+    // Salvar o evento
     eventosDAO.salvarEvento(evento, function (error, result) {
         if (error) {
             console.error('Erro ao salvar o evento:', error);
@@ -122,25 +139,6 @@ module.exports.add_evento = function (app, req, res) {
                     eventosDAO.salvarImagemEvento(imagemEvento, function (error) {
                         if (error) {
                             console.error('Erro ao salvar imagem do evento:', error);
-                        }
-                    });
-                });
-            }
-
-            // Se as imagens também precisam ser salvas na galeria
-            if (req.files && req.files.length > 0) {
-                let imagens = req.files;
-                imagens.forEach(img => {
-                    var galeria = {
-                        img: img.filename,
-                        descricao: evento.descricaoImagem || "", // ou qualquer outra descrição desejada
-                    };
-                    console.log("Imagem da galeria:", galeria);
-
-                    var galeriaDAO = new app.app.models.eventosDAO(connection);
-                    galeriaDAO.salvarGaleria(galeria, function (error) {
-                        if (error) {
-                            console.error('Erro ao salvar imagem na galeria:', error);
                         }
                     });
                 });

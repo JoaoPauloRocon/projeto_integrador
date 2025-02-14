@@ -24,114 +24,6 @@
 
 <body>
   <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-    footer a {
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #ffffff!important; /* Amarelo para hover */
-    text-decoration: none; /* Remove sublinhado no hover */
-}
-
-footer h5 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-footer img {
-    filter: brightness(0) invert(1); /* Deixa a logo branca */
-}
-
-footer .fab {
-    margin-right: 0.5rem; /* Espaçamento antes do texto */
-}
-
-    .nav-link:hover,
-        .navbar-brand img:hover {
-            color: #ffffff !important;
-            /* Altere essa cor conforme necessário */
-            transform: scale(1.1);
-            /* Aumenta o tamanho do link */
-            transition: transform 0.3s ease, color 0.3s ease;
-            /* Transição suave */
-        }
-
-    .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgb(237, 177, 26);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
-
-    .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-    }
-
-    .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
-    }
-
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
-
-    .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .btn-bd-primary {
-      --bd-violet-bg: #712cf9;
-      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-      --bs-btn-font-weight: 600;
-      --bs-btn-color: var(--bs-white);
-      --bs-btn-bg: var(--bd-violet-bg);
-      --bs-btn-border-color: var(--bd-violet-bg);
-      --bs-btn-hover-color: var(--bs-white);
-      --bs-btn-hover-bg: #6528e0;
-      --bs-btn-hover-border-color: #6528e0;
-      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-      --bs-btn-active-color: var(--bs-btn-hover-color);
-      --bs-btn-active-bg: #5a23c8;
-      --bs-btn-active-border-color: #5a23c8;
-    }
-
-    .bd-mode-toggle {
-      z-index: 1500;
-    }
-
-    .bd-mode-toggle .dropdown-menu .active .bi {
-      display: block !important;
-    }
-
     body {
       background-color: rgb(253, 190, 29);
       font-weight: 630;
@@ -139,7 +31,16 @@ footer .fab {
       display: flex;
       flex-direction: column;
     }
+
+    .card {
+      margin-bottom: 15px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
   </style>
+  
   <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
 
   <main class="container">
@@ -148,27 +49,42 @@ footer .fab {
         <% if (evento) { %>
           <h1 class="display-4 fst-italic mb-3">Detalhes do Evento: <%= evento.tituloEvento %></h1>
           <p class="lead mb-4">Informações completas sobre o evento selecionado.</p>
-          <!-- resto do conteúdo -->
         <% } else { %>
           <p>Evento não encontrado.</p>
         <% } %>
-        
       </div>
     </div>
 
-    <div class="event-details bg-light p-4 rounded bg-dark">
-      <div class="container " style=" color: #ffffff; max-width: 1500px;">
-        <!-- Centraliza o conteúdo -->
+    <div class="event-details bg-light p-4 rounded bg-dark text-white">
+      <div class="container" style="max-width: 1500px;">
         <div class="text-center">
           <h2 class="text-center mb-4"><%= evento.tituloEvento %></h2>
           <p><strong>Descrição:</strong> <%= evento.descricaoEvento %></p>
 
-          <div class="row text-start">
-            <div class="col-md-6">
-              <p><strong>Cidade:</strong> <%= evento.cidadeEvento %></p>
+          <!-- Informações do Evento em Cards -->
+          <div class="row justify-content-center">
+            <div class="col-md-5 mb-3">
+              <div class="card text-light bg-dark">
+                <div class="card-body">
+                  <h5 class="card-title">Endereço Completo</h5>
+                  <p class="card-text">
+                    <strong>Rua:</strong> <%= evento.ruaEvento %> <br>
+                    <strong>Número:</strong> <%= evento.numeroEvento %> <br>
+                    <strong>Bairro:</strong> <%= evento.bairroEvento %> <br>
+                    <strong>Cidade:</strong> <%= evento.cidadeEvento %> <br>
+                    <strong>Estado:</strong> <%= evento.estadoEvento %> <br>
+                    <strong>CEP:</strong> <%= evento.cepEvento %>
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="col-md-6">
-              <p><strong>Ano do Evento:</strong> <%= evento.anoEvento %></p>
+            <div class="col-md-5 mb-3">
+              <div class="card text-light bg-dark">
+                <div class="card-body">
+                  <h5 class="card-title">Data do Evento</h5>
+                  <p class="card-text" id="data-evento"></p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -179,7 +95,6 @@ footer .fab {
               <% evento.imagens.forEach((imagem, index) => { %>
                 <% if (index % 3 === 0 && index !== 0) { %></div><div class="row justify-content-center"> <% } %>
                 <div class="col-md-4 mb-3">
-                  <!-- Aqui fazemos a modificação para aumentar mais o tamanho -->
                   <img src="/uploads/<%= imagem %>" alt="Imagem do evento" class="event-image img-fluid img-thumbnail" style="height: 100%; width: 100%; object-fit: cover;"/>
                 </div>
               <% }) %>
@@ -196,11 +111,18 @@ footer .fab {
     </div>
   </main>
 
-  <div class="b-example-divider"></div>
-
+  <div class="b-example-divider mb-3"></div>
 
   <%- include("../partes/footer") %>
-</div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const eventoData = "<%= evento.dataEvento %>";
+      const data = new Date(eventoData);
+      const dataFormatada = data.toLocaleDateString('pt-BR'); // Formato da data: dd/mm/aaaa
+      document.getElementById('data-evento').textContent = dataFormatada;
+    });
+  </script>
 
 </body>
 
