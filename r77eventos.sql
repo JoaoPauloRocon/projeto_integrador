@@ -1,6 +1,6 @@
 /*
-SQLyog Community v13.2.1 (64 bit)
-MySQL - 10.4.28-MariaDB : Database - r77eventos
+SQLyog Community v13.3.0 (64 bit)
+MySQL - 10.4.32-MariaDB : Database - r77eventos
 *********************************************************************
 */
 
@@ -55,16 +55,21 @@ CREATE TABLE `eventos` (
   `codEvento` int(11) NOT NULL AUTO_INCREMENT,
   `tituloEvento` varchar(255) NOT NULL,
   `descricaoEvento` text DEFAULT NULL,
-  `anoEvento` int(11) DEFAULT NULL,
-  `cidadeEvento` varchar(255) DEFAULT NULL,
+  `dataEvento` date DEFAULT NULL,
+  `rua` varchar(255) DEFAULT NULL,
+  `bairro` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  `estado` varchar(255) DEFAULT NULL,
+  `cep` varchar(20) DEFAULT NULL,
+  `numero` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`codEvento`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `eventos` */
 
-insert  into `eventos`(`codEvento`,`tituloEvento`,`descricaoEvento`,`anoEvento`,`cidadeEvento`) values 
-(24,'Santa Teresa Inverno Motofest','O Santa Teresa Inverno Motofest é um evento que engloba tanto a população, quanto visitantes de outras cidades, sendo eles motociclistas ou apenas alguém querendo uma parada para curtir com a família, tendo atrações musicais, praça de alimentação, praça temática e expositores variados.',2024,'Santa Teresa'),
-(25,'My Helmet Rock Hotel','O My Helmet Rock Hotel, sediado no SESC Domingos Martins é um evento diferente do comum na cidade, trazendo consigo pessoas de todo lugar, em sua maioria motociclistas, porém não deixando de agradar o público local, que comparece desde a primeira edição em 2023, o evento ganhou mais visibilidade em 2024, contando com expositores tanto de praça temática, quanto montadoras, o evento também dispõe de uma variada praça de alimentação e atrações musicais em todos os dias de realização.',2024,'Domingos Martins');
+insert  into `eventos`(`codEvento`,`tituloEvento`,`descricaoEvento`,`dataEvento`,`rua`,`bairro`,`cidade`,`estado`,`cep`,`numero`) values 
+(31,'EVENTO 1','Evento em Santa Teresa','2025-03-22','São Paulo','Alto Santa Maria','Santa Teresa',NULL,'29662-000','06'),
+(32,'EVENTO 2','Evento em Santa Teresa','2025-03-22','São Paulo','Alto Santa Maria','Santa Teresa','ES','29662-000','06');
 
 /*Table structure for table `galeria` */
 
@@ -115,26 +120,6 @@ CREATE TABLE `imagens_eventos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `imagens_eventos` */
-
-insert  into `imagens_eventos`(`codImagem`,`codEvento`,`imgEvento`,`descricaoImagem`) values 
-(57,24,'1733268353079-Inverno Moto Fest (169).jpg',''),
-(58,24,'1733268353373-Inverno Moto Fest (35).jpg',''),
-(59,24,'1733268353475-Inverno Moto Fest (45).jpg',''),
-(60,24,'1733268353588-Inverno Moto Fest (91).jpg',''),
-(61,24,'1733268353783-Inverno Moto Fest (114).jpg',''),
-(62,24,'1733268354012-Inverno Moto Fest (152).jpg',''),
-(63,24,'1733268354187-Inverno Moto Fest (155).jpg',''),
-(64,24,'1733268354349-Inverno Moto Fest (178).jpg',''),
-(65,24,'1733268354615-Inverno Moto Fest (253).jpg',''),
-(66,25,'1733268510093-12c2b63570d6fd8c9d589819db8c1e56..jpg',''),
-(67,25,'1733268510247-00ded95b2b7e8023e1048f0ed411ec91..jpg',''),
-(68,25,'1733268510400-0e03292d88078c36b57afcabbfb3614a..jpg',''),
-(69,25,'1733268510511-0eab191ae47851ef89d9b498c559b15e..jpg',''),
-(70,25,'1733268510580-2d35cb7c9f4a60089ade94c6b192c3fa..jpg',''),
-(71,25,'1733268510630-4d9b6fdd859ecd031d19f36f3a33fc80..jpg',''),
-(72,25,'1733268510698-9c11bf14719953218190b7a8f8775c15..jpg',''),
-(73,25,'1733268510785-25b33e1a603df03b1ceb9670b64d3492..jpg',''),
-(74,25,'1733268510859-111455c88d89e51e1d60d38ab3f6ff9d..jpg','');
 
 /*Table structure for table `usuario` */
 

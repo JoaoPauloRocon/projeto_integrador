@@ -203,71 +203,73 @@ footer .fab {
 
   <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
 
-  <main class="container">
-    <div class="p-4 p-md-5 mb-4 mt-1 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-            <h1 class="display-4 fst-italic">R77 Eventos</h1>
-            <p class="lead my-3">"Entretenimento que surpreende com qualidade." Veja os <a href="/sobre">Pontos Turísticos</a> dos eventos.</p>
-        </div>
-    </div>
+  
+<main class="container">
+  <div class="p-4 p-md-5 mb-4 mt-1 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+          <h1 class="display-4 fst-italic">R77 Eventos</h1>
+          <p class="lead my-3">"Entretenimento que surpreende com qualidade." Veja os <a href="/sobre">Pontos Turísticos</a> dos eventos.</p>
+      </div>
+  </div>
 
-    <!-- Eventos Section -->
-    <div class="events-container bg-dark p-4">
-        <% 
-            // Organize events by year
-            const eventosAgrupados = eventos.reduce((acc, event) => {
-                if (!acc[event.anoEvento]) {
-                    acc[event.anoEvento] = [];
-                }
-                acc[event.anoEvento].push(event);
-                return acc;
-            }, {});
+  <!-- Eventos Section -->
+  <div class="events-container bg-dark p-4">
+      <% 
+          // Organize events by year (extract year from full date)
+          const eventosAgrupados = eventos.reduce((acc, event) => {
+              const ano = new Date(event.dataEvento).getFullYear(); // Extrai o ano da data completa
+              if (!acc[ano]) {
+                  acc[ano] = [];
+              }
+              acc[ano].push(event);
+              return acc;
+          }, {});
 
-            // Sort years in ascending order
-            const anosOrdenados = Object.keys(eventosAgrupados).sort((a, b) => a - b);
+          // Sort years in ascending order
+          const anosOrdenados = Object.keys(eventosAgrupados).sort((a, b) => b - a);
 
-            if (anosOrdenados.length === 0) { %>
-                <div class="alert alert-info" role="alert">
-                    Nenhum evento encontrado.
-                </div>
-            <% } else {
-                anosOrdenados.forEach(ano => { 
-            %>
-        <!-- Exibe o ano -->
-        <div class="event-year bg-dark">
-            <%= ano %>
-        </div>
+          if (anosOrdenados.length === 0) { %>
+              <div class="alert alert-info" role="alert">
+                  Nenhum evento encontrado.
+              </div>
+          <% } else {
+              anosOrdenados.forEach(ano => { 
+          %>
+      <!-- Exibe o ano -->
+      <div class="event-year bg-dark">
+          <%= ano %>
+      </div>
 
-        <!-- Exibe os eventos de cada ano -->
-        <div class="d-flex flex-wrap justify-content-center bg-dark">
-            <% 
-                eventosAgrupados[ano].forEach(event => { 
-            %>
-                <a href="/evento_detalhe/<%= event.codEvento %>" class="event-link">
-                    <div class="event-card bg-dark">
-                        <!-- Nome da cidade -->
-                        <div class="event-city">
-                            <%= ano %> - <%= event.cidadeEvento %>
-                        </div>
-                        
-                        <!-- Imagens do evento (máximo de 3) -->
-                        <div class="event-images">
-                            <% 
-                                let imagensParaExibir = event.imagens ? event.imagens.slice(0, 2) : [];
-                                imagensParaExibir.forEach(imagem => { 
-                            %>
-                                <img src="/uploads/<%= imagem %>" alt="Imagem do evento" class="event-image" />
-                            <% }) %>
-                        </div>
-                    </div>
-                </a>
-            <% }) %>
-        </div>
-        <% }) 
-            } %>
-    </div>
+      <!-- Exibe os eventos de cada ano -->
+      <div class="d-flex flex-wrap justify-content-center bg-dark">
+          <% 
+              eventosAgrupados[ano].forEach(event => { 
+          %>
+              <a href="/evento_detalhe/<%= event.codEvento %>" class="event-link">
+                  <div class="event-card bg-dark">
+                      <!-- Nome da cidade -->
+                      <div class="event-city">
+                          <%= ano %> - <%= event.cidadeEvento %>
+                      </div>
+                      
+                      <!-- Imagens do evento (máximo de 3) -->
+                      <div class="event-images">
+                          <% 
+                              let imagensParaExibir = event.imagens ? event.imagens.slice(0, 2) : [];
+                              imagensParaExibir.forEach(imagem => { 
+                          %>
+                              <img src="/uploads/<%= imagem %>" alt="Imagem do evento" class="event-image" />
+                          <% }) %>
+                      </div>
+                  </div>
+              </a>
+          <% }) %>
+      </div>
+      <% }) 
+          } %>
+  </div>
 
-  </main>
+</main>
 
   <br><br>
   <div class="b-example-divider"></div>
