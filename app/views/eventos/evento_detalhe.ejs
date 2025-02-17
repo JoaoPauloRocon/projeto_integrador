@@ -40,7 +40,7 @@
       padding: 20px;
     }
   </style>
-  
+
   <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
 
   <main class="container">
@@ -103,6 +103,14 @@
             <% } %>
           </div>
 
+          <!-- Botões de Editar e Deletar (visíveis apenas para administradores) -->
+          <% if (flagAdmin) { %>
+            <div class="mt-4">
+              <a href="/editarEvento/<%= evento.codEvento %>" class="btn btn-warning">Editar Evento</a>
+              <a href="/deletar_evento/<%= evento.codEvento %>" class="btn btn-danger">Deletar Evento</a>
+            </div>
+          <% } %>
+
           <div class="text-center mt-4">
             <a href="/eventos" class="btn btn-primary">Voltar para a lista de eventos</a>
           </div>
@@ -114,7 +122,7 @@
   <div class="b-example-divider mb-3"></div>
 
   <%- include("../partes/footer") %>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const eventoData = "<%= evento.dataEvento %>";
@@ -122,6 +130,22 @@
       const dataFormatada = data.toLocaleDateString('pt-BR'); // Formato da data: dd/mm/aaaa
       document.getElementById('data-evento').textContent = dataFormatada;
     });
+
+    function deletarEvento(codEvento) {
+      if (confirm("Tem certeza que deseja deletar este evento?")) {
+        fetch(`/deletarEvento/${codEvento}`, { method: 'DELETE' })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert("Evento deletado com sucesso!");
+              window.location.href = "/eventos";
+            } else {
+              alert("Erro ao deletar o evento.");
+            }
+          })
+          .catch(error => console.error("Erro:", error));
+      }
+    }
   </script>
 
 </body>
