@@ -70,6 +70,15 @@ eventosDAO.prototype.getImagensByEvento = function (codEvento, callback) {
     this._connection.query('SELECT * FROM imagens_eventos WHERE codEvento = ?', [codEvento], callback);
 };
 
+eventosDAO.prototype.deletarImagensDoEvento = function (codEvento, callback) {
+    this._connection.query('DELETE FROM imagens_eventos WHERE codEvento = ?', [codEvento], callback);
+};
+
+// Função para deletar o evento pelo ID
+eventosDAO.prototype.deleteEventoById = function (codEvento, callback) {
+    this._connection.query('DELETE FROM eventos WHERE codEvento = ?', [codEvento], callback);
+};
+
 eventosDAO.prototype.getEventos = function (callback) {
     const sql = `
         SELECT e.codEvento, e.tituloEvento, e.descricaoEvento, e.dataEvento, e.cidade, e.rua, e.numero, e.bairro, e.cep, e.estado 
