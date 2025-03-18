@@ -115,6 +115,27 @@ eventosDAO.prototype.buscarEventosEntreDatas = function (dataInicio, dataFim, ca
     this._connection.query(sql, [dataInicio, dataFim], callback);
 };
 
+eventosDAO.prototype.atualizarEvento = function (id, evento, callback) {
+    const sql = `
+        UPDATE eventos 
+        SET tituloEvento = ?, descricaoEvento = ?, dataEvento = ?, cidade = ?, rua = ?, numero = ?, bairro = ?, cep = ?, estado = ?
+        WHERE codEvento = ?
+    `;
+    this._connection.query(sql, [
+        evento.titulo,
+        evento.descricao,
+        evento.data,
+        evento.cidade,
+        evento.rua,
+        evento.numero,
+        evento.bairro,
+        evento.cep,
+        evento.estado,
+        id
+    ], callback);
+};
+
+
 module.exports = function () {
     return eventosDAO;
 }

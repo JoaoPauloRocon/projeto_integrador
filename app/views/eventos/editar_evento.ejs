@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastrar Evento - R77 Eventos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/5bece6c669.js" crossorigin="anonymous"></script>
+
+  <script>
+    function formatarCep(cep) {
+      return cep.replace(/(\d{5})(\d{3})/, '$1-$2');
+    }
+
+    $(document).ready(function () {
+      $("#cep").on('input', function () {
+        var cepFormatado = formatarCep($(this).val());
+        $(this).val(cepFormatado);
+
+        if ($(this).val().length === 10) {
+          buscarEnderecoPorCep();
+        }
+      });
+    });
+
+    function buscarEnderecoPorCep() {
+      var cep = document.getElementById('cep').value.replace(/\D/g, '');
+
+      if (cep.length === 8) {
+        var url = `https://viacep.com.br/ws/${cep}/json/`;
+
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            if (!data.erro) {
+              document.getElementById('rua').value = data.logradouro;
+              document.getElementById('bairro').value = data.bairro;
+              document.getElementById('cidade_endereco').value = data.localidade;
+              document.getElementById('estado').value = data.uf;
+            } else {
+              alert("CEP não encontrado.");
+            }
+          })
+          .catch(error => {
+            console.error("Erro ao buscar o endereço:", error);
+            alert("Erro ao buscar o endereço.");
+          });
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+  <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
+
+  <main class="container mt-5">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic">Cadastrar Novo Evento</h1>
+        <p class="lead my-3">Preencha o formulário abaixo para cadastrar um evento.</p>
+      </div>
+    </div>
+
+    <div class="album mb-4 py-5 bg-dark text-white rounded">
+      
+
+        <h2 class="mb-4">Editar Evento</h2>
+
+        <div class="container">
+          <% if (validacao) { %>
+            <div class="alert ">
+              <ul>
+                <% validacao.forEach(function(erro) { %>
+                  <li><%= erro.msg %></li>
+                <% }); %>
+              </ul>
+            </div>
+          <% } %>
+
+        <form action="/atualizar_evento/<%= evento.codEvento %>" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="titulo" class="form-label">Título:</label>
+            <input type="text" name="titulo" id="titulo" class="form-control" value="<%= evento.tituloEvento %>" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição:</label>
+            <textarea name="descricao" id="descricao" class="form-control" rows="4" required><%= evento.descricaoEvento %></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="data" class="form-label">Data:</label>
+            <input type="date" name="data" id="data" class="form-control" value="<%= evento.dataEvento.toISOString().split('T')[0] %>" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="cidade" class="form-label">Cidade:</label>
+            <input type="text" name="cidade" id="cidade" class="form-control" value="<%= evento.cidadeEvento %>" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="rua" class="form-label">Rua:</label>
+            <input type="text" name="rua" id="rua" class="form-control" value="<%= evento.ruaEvento %>" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="bairro" class="form-label">Bairro:</label>
+            <input type="text" name="bairro" id="bairro" class="form-control" value="<%= evento.bairroEvento %>" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="numero" class="form-label">Número:</label>
+            <input type="text" name="numero" id="numero" class="form-control" value="<%= evento.numeroEvento %>" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="cep" class="form-label">CEP:</label>
+            <input type="text" name="cep" id="cep" class="form-control" value="<%= evento.cepEvento %>" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="estado" class="form-label">Estado:</label>
+            <input type="text" name="estado" id="estado" class="form-control" value="<%= evento.estadoEvento %>" required>
+          </div>
+
+          <h3 class="mt-4 mb-3">Imagens Atuais:</h3>
+          <div class="mb-3">
+            <% evento.imagens.forEach(function(imagem) { %>
+              <img src="/uploads/<%= imagem %>" width="150" class="mb-2">
+            <% }) %>
+          </div>
+
+          <div class="mb-3">
+            <label for="novas_imagens" class="form-label">Adicionar novas imagens:</label>
+            <input type="file" name="novas_imagens" class="form-control" multiple>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <br><br>
+  <div class="b-example-divider"></div>
+
+  <%- include("../partes/footer") %>
+
+</body>
+
+</html>
