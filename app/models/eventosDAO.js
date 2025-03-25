@@ -49,11 +49,11 @@ eventosDAO.prototype.salvarEvento = function (evento, callback) {
             evento.descricao,
             evento.data,
             evento.cidade_endereco,
-            evento.rua,               
-            evento.numero,            
-            evento.bairro,                 
+            evento.rua,
+            evento.numero,
+            evento.bairro,
             evento.cep,
-            evento.estado               
+            evento.estado
         ],
         callback
     );
@@ -70,8 +70,12 @@ eventosDAO.prototype.getImagensByEvento = function (codEvento, callback) {
     this._connection.query('SELECT * FROM imagens_eventos WHERE codEvento = ?', [codEvento], callback);
 };
 
-eventosDAO.prototype.deletarImagensDoEvento = function (codEvento, callback) {
+eventosDAO.prototype.deletarTodasImagensDoEvento = function (codEvento, callback) {
     this._connection.query('DELETE FROM imagens_eventos WHERE codEvento = ?', [codEvento], callback);
+};
+
+eventosDAO.prototype.deletarImagemDoEvento = function (imagem, callback) {
+    this._connection.query('DELETE FROM imagens_eventos WHERE codEvento = ? AND imgEvento = ?', [imagem.codEvento, imagem.nomeImagem], callback);
 };
 
 // Função para deletar o evento pelo ID

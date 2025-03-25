@@ -131,21 +131,6 @@
       document.getElementById('data-evento').textContent = dataFormatada;
     });
 
-    function deletarEvento(codEvento) {
-      if (confirm("Tem certeza que deseja deletar este evento?")) {
-        fetch(`/deletarEvento/${codEvento}`, { method: 'DELETE' })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success) {
-              alert("Evento deletado com sucesso!");
-              window.location.href = "/eventos";
-            } else {
-              alert("Erro ao deletar o evento.");
-            }
-          })
-          .catch(error => console.error("Erro:", error));
-      }
-    }
   </script>
 
 </body>
