@@ -35,4 +35,8 @@ module.exports = function (app) {
         app.app.controllers.eventos.eventos.atualizar_evento(app, req, res);
     });
 
+    app.get('/deletar_imagem/:codEvento/:nomeImagem', (req, res) => {
+        app.app.controllers.eventos.eventos.deletar_imagem_evento(app, req, res);
+    });
+
 };

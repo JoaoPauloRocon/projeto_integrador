@@ -4,7 +4,7 @@ module.exports.deleta_evento = function (app, req, res) {
     var id = req.params.id;
 
     // Primeiro, deletar as imagens associadas ao evento
-    eventosDAO.deletarImagensDoEvento(id, function (error) {
+    eventosDAO.deletarTodasImagensDoEvento(id, function (error) {
         if (error) {
             console.error('Erro ao deletar imagens do evento:', error);
             res.status(500).send('Erro ao deletar imagens do evento');
@@ -202,7 +202,7 @@ module.exports.renderiza_editar_evento = function (app, req, res) {
 module.exports.atualizar_evento = function (app, req, res) {
     var evento = req.body;
     console.log("Evento:", evento);
-    
+
     var connection = app.config.dbConnection();
     var eventosDAO = new app.app.models.eventosDAO(connection);
     var id = req.params.id;
@@ -215,30 +215,43 @@ module.exports.atualizar_evento = function (app, req, res) {
 
         // Se houver novas imagens, atualizá-las
         if (req.files && req.files.length > 0) {
-            // Deletar imagens antigas
-            eventosDAO.deletarImagensDoEvento(id, function (error) {
-                if (error) {
-                    console.error('Erro ao deletar imagens antigas:', error);
-                }
 
-                // Adicionar novas imagens
-                let imagens = req.files;
-                imagens.forEach(img => {
-                    var imagemEvento = {
-                        codEvento: id,
-                        imgEvento: img.filename,
-                        descricaoImagem: evento.descricaoImagem || ""
-                    };
-                    eventosDAO.salvarImagemEvento(imagemEvento, function (error) {
-                        if (error) {
-                            console.error('Erro ao salvar nova imagem do evento:', error);
-                        }
-                    });
+            // Adicionar novas imagens
+            let imagens = req.files;
+            imagens.forEach(img => {
+                var imagemEvento = {
+                    codEvento: id,
+                    imgEvento: img.filename,
+                    descricaoImagem: evento.descricaoImagem || ""
+                };
+                eventosDAO.salvarImagemEvento(imagemEvento, function (error) {
+                    if (error) {
+                        console.error('Erro ao salvar nova imagem do evento:', error);
+                    }
                 });
             });
+
         }
-        
+
         res.redirect('/eventos');
+    });
+};
+
+module.exports.deletar_imagem_evento = function (app, req, res) {
+    var connection = app.config.dbConnection();
+    var eventosDAO = new app.app.models.eventosDAO(connection);
+    const imagem = req.params;
+    console.log(imagem);
+    // Primeiro, deletar as imagens associadas ao evento
+    eventosDAO.deletarImagemDoEvento(imagem, function (error) {
+        if (error) {
+            console.error('Erro ao deletar imagens do evento:', error);
+            res.status(500).send('Erro ao deletar imagens do evento');
+        } else {
+            // Depois, deletar o evento
+            res.redirect(`/editarEvento/${req.params.codEvento}`);
+            // Redireciona para a listagem de eventos
+        }
     });
 };
 

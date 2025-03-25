@@ -66,16 +66,16 @@
 <body>
   <%- include("../partes/header", { flagAdmin: flagAdmin, codLogado: codLogado }) %>
 
-  <main class="container mt-5">
-    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-      <div class="col-md-6 px-0">
-        <h1 class="display-4 fst-italic">Cadastrar Novo Evento</h1>
-        <p class="lead my-3">Preencha o formulário abaixo para cadastrar um evento.</p>
+    <main class="container mt-5">
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 fst-italic">Cadastrar Novo Evento</h1>
+          <p class="lead my-3">Preencha o formulário abaixo para cadastrar um evento.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="album mb-4 py-5 bg-dark text-white rounded">
-      
+      <div class="album mb-4 py-5 bg-dark text-white rounded">
+
 
         <h2 class="mb-4">Editar Evento</h2>
 
@@ -84,80 +84,96 @@
             <div class="alert ">
               <ul>
                 <% validacao.forEach(function(erro) { %>
-                  <li><%= erro.msg %></li>
-                <% }); %>
+                  <li>
+                    <%= erro.msg %>
+                  </li>
+                  <% }); %>
               </ul>
             </div>
-          <% } %>
+            <% } %>
 
-        <form action="/atualizar_evento/<%= evento.codEvento %>" method="POST" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="titulo" class="form-label">Título:</label>
-            <input type="text" name="titulo" id="titulo" class="form-control" value="<%= evento.tituloEvento %>" required>
-          </div>
+              <form action="/atualizar_evento/<%= evento.codEvento %>" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="titulo" class="form-label">Título:</label>
+                  <input type="text" name="titulo" id="titulo" class="form-control" value="<%= evento.tituloEvento %>"
+                    required>
+                </div>
 
-          <div class="mb-3">
-            <label for="descricao" class="form-label">Descrição:</label>
-            <textarea name="descricao" id="descricao" class="form-control" rows="4" required><%= evento.descricaoEvento %></textarea>
-          </div>
+                <div class="mb-3">
+                  <label for="descricao" class="form-label">Descrição:</label>
+                  <textarea name="descricao" id="descricao" class="form-control" rows="4"
+                    required><%= evento.descricaoEvento %></textarea>
+                </div>
 
-          <div class="mb-3">
-            <label for="data" class="form-label">Data:</label>
-            <input type="date" name="data" id="data" class="form-control" value="<%= evento.dataEvento.toISOString().split('T')[0] %>" required>
-          </div>
+                <div class="mb-3">
+                  <label for="data" class="form-label">Data:</label>
+                  <input type="date" name="data" id="data" class="form-control"
+                    value="<%= evento.dataEvento.toISOString().split('T')[0] %>" required>
+                </div>
 
-          <div class="mb-3">
-            <label for="cidade" class="form-label">Cidade:</label>
-            <input type="text" name="cidade" id="cidade" class="form-control" value="<%= evento.cidadeEvento %>" required>
-          </div>
+                <div class="mb-3">
+                  <label for="cidade" class="form-label">Cidade:</label>
+                  <input type="text" name="cidade" id="cidade" class="form-control" value="<%= evento.cidadeEvento %>"
+                    required>
+                </div>
 
-          <div class="mb-3">
-            <label for="rua" class="form-label">Rua:</label>
-            <input type="text" name="rua" id="rua" class="form-control" value="<%= evento.ruaEvento %>" required>
-          </div>
+                <div class="mb-3">
+                  <label for="rua" class="form-label">Rua:</label>
+                  <input type="text" name="rua" id="rua" class="form-control" value="<%= evento.ruaEvento %>" required>
+                </div>
 
-          <div class="mb-3">
-            <label for="bairro" class="form-label">Bairro:</label>
-            <input type="text" name="bairro" id="bairro" class="form-control" value="<%= evento.bairroEvento %>" required>
-          </div>
+                <div class="mb-3">
+                  <label for="bairro" class="form-label">Bairro:</label>
+                  <input type="text" name="bairro" id="bairro" class="form-control" value="<%= evento.bairroEvento %>"
+                    required>
+                </div>
 
-          <div class="mb-3">
-            <label for="numero" class="form-label">Número:</label>
-            <input type="text" name="numero" id="numero" class="form-control" value="<%= evento.numeroEvento %>" required>
-          </div>
+                <div class="mb-3">
+                  <label for="numero" class="form-label">Número:</label>
+                  <input type="text" name="numero" id="numero" class="form-control" value="<%= evento.numeroEvento %>"
+                    required>
+                </div>
 
-          <div class="mb-3">
-            <label for="cep" class="form-label">CEP:</label>
-            <input type="text" name="cep" id="cep" class="form-control" value="<%= evento.cepEvento %>" required>
-          </div>
+                <div class="mb-3">
+                  <label for="cep" class="form-label">CEP:</label>
+                  <input type="text" name="cep" id="cep" class="form-control" value="<%= evento.cepEvento %>" required>
+                </div>
 
-          <div class="mb-3">
-            <label for="estado" class="form-label">Estado:</label>
-            <input type="text" name="estado" id="estado" class="form-control" value="<%= evento.estadoEvento %>" required>
-          </div>
+                <div class="mb-3">
+                  <label for="estado" class="form-label">Estado:</label>
+                  <input type="text" name="estado" id="estado" class="form-control" value="<%= evento.estadoEvento %>"
+                    required>
+                </div>
 
-          <h3 class="mt-4 mb-3">Imagens Atuais:</h3>
-          <div class="mb-3">
-            <% evento.imagens.forEach(function(imagem) { %>
-              <img src="/uploads/<%= imagem %>" width="150" class="mb-2">
-            <% }) %>
-          </div>
+                <h3 class="mt-4 mb-3">Imagens Atuais:</h3>
+                <div class="mb-3 d-flex flex-wrap">
+                  <% evento.imagens.forEach(function(imagem) { %>
+                    <div class="position-relative m-2">
+                      <img src="/uploads/<%= imagem %>" width="150" class="rounded">
+                      <a href="/deletar_imagem/<%= evento.codEvento %>/<%= imagem %>" 
+                        class="btn btn-danger btn-sm position-absolute top-0 end-0">
+                         <i class="fas fa-times"></i>
+                     </a>
+                     
+                    </div>
+                  <% }) %>
+                </div>
 
-          <div class="mb-3">
-            <label for="novas_imagens" class="form-label">Adicionar novas imagens:</label>
-            <input type="file" name="novas_imagens" class="form-control" multiple>
-          </div>
+                <div class="mb-3">
+                  <label for="imagens" class="form-label">Adicionar novas imagens:</label>
+                  <input type="file" class="form-control" id="imagens" name="imagens" accept="image/*" multiple>
+                </div>
 
-          <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-        </form>
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+              </form>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <br><br>
-  <div class="b-example-divider"></div>
+    <br><br>
+    <div class="b-example-divider"></div>
 
-  <%- include("../partes/footer") %>
+    <%- include("../partes/footer") %>
 
 </body>
 
