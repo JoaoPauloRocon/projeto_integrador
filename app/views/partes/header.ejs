@@ -1,64 +1,59 @@
-<nav class="navbar navbar-expand-md border-bottom bg-dark" data-bs-theme="dark">
-    <div class="container d-flex align-items-center">
-        <a class="navbar-brand d-md-none" href="#">
-            R77
+<nav class="navbar navbar-expand-lg bg-dark border-bottom" data-bs-theme="dark" style="height: 100px;">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/login/LogoR77eventos.png" alt="Logo R77 Eventos" style="max-width: 100px;">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
-            aria-controls="offcanvas" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasLabel">Aperture</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar">
+            <div class="offcanvas-header border-bottom">
+                <h5 class="offcanvas-title text-warning">Menu</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
             </div>
             <div class="offcanvas-body">
-                <ul class="centro navbar-nav flex-grow-1 justify-content-between bg-dark">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <img src="/login/LogoR77eventos.png" alt="Logo R77 Eventos" style="max-width: 85px;">
-                        </a>
+                <ul class="navbar-nav ms-auto text-center text-lg-start">
+                    <li class="nav-item mb-3 me-4">
+                        <a class="nav-link text-warning" href="/">Home</a>
                     </li>
                     <% if (flagAdmin==='adm' ) { %>
-                        <li class="nav-item"><a class="nav-link text-warning" href="/">Home</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-warning" href="/galeria" id="dropdownGaleria" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Galeria
-                            </a>
-                            <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownGaleria">
+                        <li class="nav-item dropdown mb-3 me-4">
+                            <a class="nav-link dropdown-toggle text-warning" href="#" id="dropdownGaleria"
+                                data-bs-toggle="dropdown">Galeria</a>
+                            <ul class="dropdown-menu bg-dark border-3">
                                 <li><a class="dropdown-item text-warning" href="/galeria">Ver Galeria</a></li>
                                 <li><a class="dropdown-item text-warning" href="/add_galeria">Adicionar Fotos</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-warning" href="#" id="dropdownEventos" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Eventos
-                            </a>
-                            <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownEventos">
-                                <li><a class="dropdown-item text-warning" href="/eventos">Ver Todos os Eventos</a></li>
+                        <li class="nav-item dropdown mb-3 me-4">
+                            <a class="nav-link dropdown-toggle text-warning" href="#" id="dropdownEventos"
+                                data-bs-toggle="dropdown">Eventos</a>
+                            <ul class="dropdown-menu bg-dark border-3">
+                                <li><a class="dropdown-item text-warning" href="/eventos">Ver Eventos</a></li>
                                 <li><a class="dropdown-item text-warning" href="/add_evento">Adicionar Eventos</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
-                        <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>
-                        <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
+                        <li class="nav-item mb-3 me-4"><a class="nav-link text-warning" href="/conta">Conta</a></li>
                         <% } else if (flagAdmin==='usuario' ) { %>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/">Home</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/galeria">Galeria</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/eventos">Eventos</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/conta">Conta</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>
-                            <li class="nav-item"><a class="nav-link text-warning" href="/sair">Sair</a></li>
+                            <li class="nav-item mb-3 me-4"><a class="nav-link text-warning" href="/galeria">Galeria</a>
+                            </li>
+                            <li class="nav-item mb-3 me-4"><a class="nav-link text-warning" href="/eventos">Eventos</a>
+                            </li>
+                            <li class="nav-item mb-3 me-4"><a class="nav-link text-warning" href="/conta">Conta</a></li>
                             <% } else { %>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/">Home</a></li>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/galeria">Galeria</a></li>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/login">Login</a></li>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/cadastrar">Cadastre-se</a>
-                                <li class="nav-item"><a class="nav-link text-warning" href="/sobre">Sobre</a></li>
+                                <li class="nav-item mb-3 me-4"><a class="nav-link text-warning" href="/login">Login</a>
                                 </li>
+                                <li class="nav-item mb-3 me-4"><a class="nav-link text-warning"
+                                        href="/cadastrar">Cadastre-se</a></li>
                                 <% } %>
+                                    <li class="nav-item mb-3 me-4"><a class="nav-link text-warning"
+                                            href="/sobre">Sobre</a></li>
+                                    <% if (flagAdmin) { %>
+                                        <li class="nav-item mb-3 me-4">
+                                            <a class="nav-link sair" href="/sair">Sair</a>
+                                        </li>
+                                        <% } %>
                 </ul>
             </div>
         </div>
@@ -66,79 +61,91 @@
 </nav>
 
 <style>
-    /* Ajustes gerais para o menu */
-.navbar-nav li.nav-item a.nav-link {
-    font-size: 18px;
-    padding: 10px 15px;
-}
+    /* Fonte personalizada */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Cor e estilo do dropdown */
-.dropdown-menu {
-    background-color: #343a40;
-    border: none;
-}
-
-/* Cor do item do dropdown */
-.dropdown-item {
-    color: #FDBE1D;
-}
-
-.dropdown-item:hover {
-    background-color: #495057;
-}
-
-/* Ajustes para tornar o menu mais responsivo */
-@media (max-width: 991px) {
-    .navbar-toggler {
-        border: none;
-        outline: none;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        align-items: start;
-        width: 100%;
-    }
-
-    .nav-item {
-        width: 100%;
-        text-align: left;
-    }
-
-    .nav-link {
-        padding: 12px 15px;
+    .navbar-nav .nav-link {
         font-size: 16px;
-        display: block;
-        width: 100%;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 12px 20px;
+        transition: all 0.3s ease-in-out;
+        letter-spacing: 1px;
     }
 
-    .offcanvas {
-        width: 75%; /* Largura do menu lateral */
+    /* Ajuste específico para o botão de Sair */
+    /* Estilo padrão do botão de Sair */
+    .sair {
+        color: #dc3545;
+        /* Letra vermelha */
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 10px 18px;
+        transition: all 0.3s ease-in-out;
     }
 
-    .offcanvas-body {
-        padding: 20px;
+    /* Quando passar o mouse */
+    .navbar-nav .nav-link.sair:hover {
+        background-color: #dc3545;
+        /* Fundo vermelho */
+        color: #ffffff;
+        /* Letra branca */
     }
 
-    .navbar-brand img {
-        max-width: 70px;
-    }
-}
 
-/* Ajuste para telas muito pequenas */
-@media (max-width: 576px) {
-    .nav-link {
-        font-size: 15px;
-        padding: 10px;
+
+    /* Mudança de cor no hover */
+    .navbar-nav .nav-link:hover {
+        color: #ffffff;
+        background: #FDCB0A;
+        border-radius: 5px;
+        padding: 8px 15px;
     }
 
-    .navbar-brand img {
-        max-width: 60px;
+    /* Estilização do dropdown */
+    .dropdown-menu {
+        background-color: #FDCB0A;
     }
 
-    .offcanvas {
-        width: 90%;
+    /* Estilo padrão dos itens do dropdown */
+    .dropdown-item {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #FDCB0A !important;
+        /* Garante que o texto fique preto normalmente */
     }
-}
 
+    /* Hover do dropdown */
+    .dropdown-item:hover {
+        background-color: #FDCB0A !important;
+        /* Cor diferente do fundo */
+        color: #ffffff !important;
+        /* Força o texto a ficar branco */
+    }
+
+    @media (max-width: 992px) {
+
+        /* Tablets e celulares grandes */
+        .offcanvas {
+            width: 60% !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        /* Celulares médios */
+        .offcanvas {
+            width: 65% !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+
+        /* Celulares pequenos */
+        .offcanvas {
+            width: 65% !important;
+        }
+    }
 </style>
